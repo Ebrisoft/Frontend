@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { IssueFeed } from './issueFeed.page';
+import { IssueFeed } from './issue-feed.page';
 
 describe('TabOne', () => {
   let component: IssueFeed;

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-issueFeed',
-  templateUrl: 'issueFeed.page.html',
-  styleUrls: ['issueFeed.page.scss']
+  selector: 'app-issue-feed',
+  templateUrl: 'issue-feed.page.html',
+  styleUrls: ['issue-feed.page.scss']
 })
 
 export class IssueFeed {

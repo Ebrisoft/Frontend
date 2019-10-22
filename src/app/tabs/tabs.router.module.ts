@@ -8,25 +8,25 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'issueFeed',
+        path: 'issue-feed',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../IssueFeed/issueFeed.module').then(m => m.IssueFeedModule)
+              import('../Views/issue-feed/issue-feed.module').then(m => m.IssueFeedModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/issueFeed',
+        redirectTo: '/tabs/issue-feed',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/issueFeed',
+    redirectTo: '/tabs/issue-feed',
     pathMatch: 'full'
   }
 ];

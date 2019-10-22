@@ -2,7 +2,8 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IssueFeed } from './issueFeed.page';
+import { IssueFeed } from './issue-feed.page';
+import { IssueCardComponent } from 'src/app/Components/issue-card/issue-card.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,9 @@ import { IssueFeed } from './issueFeed.page';
     CommonModule,
     RouterModule.forChild([{ path: '', component: IssueFeed }])
   ],
-  declarations: [IssueFeed]
+  declarations: [
+    IssueFeed,
+    IssueCardComponent
+  ]
 })
 export class IssueFeedModule {}
