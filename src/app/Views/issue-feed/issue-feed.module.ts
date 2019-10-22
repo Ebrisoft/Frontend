@@ -2,16 +2,19 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IssueFeed } from './issue-feed.page';
+import { IssueCardComponent } from 'src/app/Components/issue-card/issue-card.component';
 import { FormsModule } from '@angular/forms';
-import { TabOne } from './tabOne.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: TabOne }])
+    RouterModule.forChild([{ path: '', component: IssueFeed }])
   ],
-  declarations: [TabOne]
+  declarations: [
+    IssueFeed,
+    IssueCardComponent
+  ]
 })
-export class TabOnePageModule {}
+export class IssueFeedModule {}
