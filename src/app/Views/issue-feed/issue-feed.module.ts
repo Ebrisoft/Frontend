@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IssueFeed } from './issue-feed.page';
 import { IssueCardComponent } from 'src/app/Components/issue-card/issue-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
