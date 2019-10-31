@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import SigninService from 'src/app/Services/API/Unauth/SigninService';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,22 @@ export class LoginComponent implements OnInit {
 
   EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   
-  email: String;
-  password: String;
+  email: string;
+  password: string;
   loginError:Boolean;
 
-  constructor() { }
+  signinService: SigninService;
+
+  constructor() {
+    this.signinService = new SigninService()
+   }
+
 
   LoginPressed(): void{
-   // this.loginError = false;
     this.loginError = this.Validate()
+    if (!this.loginError){
+      this.signinService.SignIn(this.email, this.password)
+    }
   }
   
   Validate(): Boolean {
@@ -30,6 +38,8 @@ export class LoginComponent implements OnInit {
     return true;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
 }
