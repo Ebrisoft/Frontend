@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+      <ion-label position='stacked'> Username</ion-label>
+      <ion-input type='email' [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label position='stacked'> Password</ion-label>
+      <ion-input type='password'[(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <ion-button expand='full' (click)='loginPressed()'>Login</ion-button>
+</ion-content>
+
