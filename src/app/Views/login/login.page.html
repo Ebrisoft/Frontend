@@ -16,6 +16,7 @@
       <ion-input type='password'[(ngModel)]="password"></ion-input>
   </ion-item>
 
-  <ion-button expand='full' (click)='loginPressed()'>Login</ion-button>
+  <ion-button expand='full' (click)='LoginPressed()'>Login</ion-button>
+  <ion-note color='danger' *ngIf='loginError'>Invald Input</ion-note>
 </ion-content>
 
