@@ -19,14 +19,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/issue-feed',
+        redirectTo: 'tabs/issue-feed',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/issue-feed',
+    redirectTo: 'tabs/issue-feed',
     pathMatch: 'full'
   }
 ];
