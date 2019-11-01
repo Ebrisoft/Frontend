@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   
   Validate(): Boolean {
     if (this.email && this.password){
-      console.log(this.email.match(this.EMAIL_REGEX))
       if (this.email.search(this.EMAIL_REGEX) != -1 ){
         return false
       }

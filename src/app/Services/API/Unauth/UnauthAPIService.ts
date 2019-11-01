@@ -6,7 +6,6 @@ export default class UnauthAPIService  extends APIService {
     }
 
     Post(endpoint: string, payload: Object): void {
-       this.baseURI += endpoint
-       this.http.post(this.baseURI, payload, this.headers)
+       this.http.post(this.baseURI + endpoint, payload, this.headers)
     }
 }

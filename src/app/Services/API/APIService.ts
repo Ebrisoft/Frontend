@@ -8,6 +8,7 @@ export default abstract class APIService {
 
     constructor(domain : string) {
         this.baseURI += domain
+        this.http.setDataSerializer("json")
     }
 
     abstract Post(endpoint : string, payload : Object ) : void
