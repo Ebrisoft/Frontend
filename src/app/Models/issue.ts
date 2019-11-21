@@ -1,3 +1,3 @@
-export class Issue{
-    content:String;
+export class Issue {
+    content: string;
 }

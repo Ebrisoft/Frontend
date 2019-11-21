@@ -1,11 +1,7 @@
-import APIService from '../APIService';
+import APIService from '../api-service';
 
-export default class UnauthAPIService  extends APIService {
+export default class UnauthAPIService extends APIService {
     constructor(){
         super('unauth/')
-    }
-
-    Post(endpoint: string, payload: Object): void {
-       this.http.post(this.baseURI + endpoint, payload, this.headers)
     }
 }

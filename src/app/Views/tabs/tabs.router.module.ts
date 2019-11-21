@@ -13,7 +13,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../Views/issue-feed/issue-feed.module').then(m => m.IssueFeedModule)
+              import('../issue-feed/issue-feed.module').then(m => m.IssueFeedModule)
           }
         ]
       },
