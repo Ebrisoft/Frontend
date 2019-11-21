@@ -21,11 +21,13 @@ export class LoginComponent implements OnInit {
 
   async loginPressed(): Promise<void> {
     this.loginError = this.validate();
-    this.router.navigate(["/home"]);
     
-    // if (!this.loginError) {
-    //   const response = await this.signinService.SignIn(this.email, this.password);
-    // }
+    if (!this.loginError) {
+      const response = await this.signinService.SignIn(this.email, this.password);
+      if (response.payload.roles[0] === "tenant") {
+        this.router.navigate(["/home"]);
+      }
+    }
   }
 
   validate(): boolean {

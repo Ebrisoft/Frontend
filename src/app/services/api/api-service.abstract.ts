@@ -3,7 +3,7 @@ import { IAPIResponse } from "src/app/models/response/api-response.interface";
 
 
 export default abstract class APIService {
-  protected baseURI = "https://localhost:44378/api/v1/";
+  protected baseURI = "https://efffd37e.ngrok.io/api/v1/";
   protected http: HTTP = new HTTP();
   protected headers = {
     "Content-Type": "application/json"
@@ -17,10 +17,12 @@ export default abstract class APIService {
   async Post<T>(endpoint: string, payload: object): Promise<IAPIResponse<T>> {
     const response: HTTPResponse = await this.http.post(this.baseURI + endpoint, payload, this.headers);
 
+    const data = JSON.parse(response.data);
+
     return {
       statusCode: response.status,
-      errors: response.data.errors,
-      payload: response.data.payload
+      errors: data.errors,
+      payload: data.payload
     };
   }
 }
