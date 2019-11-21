@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import SigninService from "src/app/services/api/unauth/sign-in-service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -14,15 +15,17 @@ export class LoginComponent implements OnInit {
   password: string;
   loginError: boolean;
 
-  constructor(public signinService: SigninService) {
+  constructor(public signinService: SigninService, private router: Router) {
     
   }
 
   async loginPressed(): Promise<void> {
     this.loginError = this.validate();
-    if (!this.loginError) {
-      const response = await this.signinService.SignIn(this.email, this.password);
-    }
+    this.router.navigate(["/home"]);
+    
+    // if (!this.loginError) {
+    //   const response = await this.signinService.SignIn(this.email, this.password);
+    // }
   }
 
   validate(): boolean {
