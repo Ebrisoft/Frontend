@@ -1,33 +1,33 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { TabsPage } from "./tabs.page";
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: "tabs",
     component: TabsPage,
     children: [
       {
-        path: 'issue-feed',
+        path: "issue-feed",
         children: [
           {
-            path: '',
+            path: "",
             loadChildren: () =>
-              import('../issue-feed/issue-feed.module').then(m => m.IssueFeedModule)
+              import("../issue-feed/issue-feed.module").then(m => m.IssueFeedModule)
           }
         ]
       },
       {
-        path: '',
-        redirectTo: 'tabs/issue-feed',
-        pathMatch: 'full'
+        path: "",
+        redirectTo: "tabs/issue-feed",
+        pathMatch: "full"
       }
     ]
   },
   {
-    path: '',
-    redirectTo: 'tabs/issue-feed',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "tabs/issue-feed",
+    pathMatch: "full"
   }
 ];
 
