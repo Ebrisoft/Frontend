@@ -14,12 +14,9 @@ export class LoginComponent implements OnInit {
   password: string;
   loginError: boolean;
 
-  signinService: SigninService;
-
-  constructor() {
-    this.signinService = new SigninService();
-   }
-
+  constructor(public signinService: SigninService) {
+    
+  }
 
   async loginPressed(): Promise<void> {
     this.loginError = this.validate();
