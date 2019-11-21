@@ -1,24 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IonicModule } from "@ionic/angular";
 
-import { IssueFeed } from './issue-feed.page';
+import { IssueFeedPage } from "./issue-feed.page";
 
-describe('TabOne', () => {
-  let component: IssueFeed;
-  let fixture: ComponentFixture<IssueFeed>;
+describe("TabOne", () => {
+  let component: IssueFeedPage;
+  let fixture: ComponentFixture<IssueFeedPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IssueFeed],
-      imports: [IonicModule.forRoot()]
+      declarations: [ IssueFeedPage ],
+      imports: [ IonicModule.forRoot() ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IssueFeed);
+    fixture = TestBed.createComponent(IssueFeedPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

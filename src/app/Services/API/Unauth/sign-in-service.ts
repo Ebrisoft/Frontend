@@ -12,7 +12,7 @@ export default class SigninService {
 
   async SignIn(email: string, password: string): Promise<IAPIResponse<ISignInResponse>> {
     const payload: ISignInRequest = {
-      username: email,
+      email: email,
       password: password
     };
 

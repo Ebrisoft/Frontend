@@ -2,7 +2,7 @@ import { IonicModule } from "@ionic/angular";
 import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { IssueFeed } from "./issue-feed.page";
+import { IssueFeedPage } from "./issue-feed.page";
 import { IssueCardComponent } from "src/app/components/issue-card/issue-card.component";
 import { FormsModule } from "@angular/forms";
 
@@ -10,10 +10,10 @@ import { FormsModule } from "@angular/forms";
   imports: [
     IonicModule,
     CommonModule,
-    RouterModule.forChild([{ path: "", component: IssueFeed }])
+    RouterModule.forChild([{ path: "", component: IssueFeedPage }])
   ],
   declarations: [
-    IssueFeed,
+    IssueFeedPage,
     IssueCardComponent
   ]
 })
