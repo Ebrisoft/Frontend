@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginModule } from './Views/login/login.module';
+import { LoginModule } from './views/login/login.module';
 
 const routes: Routes = [
   {
     path: '',
-      loadChildren: () => import('./Views/login/login.module').then(m => m.LoginModule)
+      loadChildren: () => import('./views/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'home',
-      loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+      loadChildren: () => import('./views/tabs/tabs.module').then(m => m.TabsPageModule)
   }
 
 ];

@@ -1,4 +1,4 @@
-export class SigninRequest {
+export class SignInRequest {
     username : string
     password : string
 

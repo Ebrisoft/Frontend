@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import SigninService from 'src/app/Services/API/Unauth/SigninService';
+import SigninService from 'src/app/services/api/unauth/sign-in-service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,7 @@ import SigninService from 'src/app/Services/API/Unauth/SigninService';
 })
 export class LoginComponent implements OnInit {
 
-  EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  static EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   
   email: string;
   password: string;
@@ -21,16 +21,16 @@ export class LoginComponent implements OnInit {
    }
 
 
-  LoginPressed(): void{
-    this.loginError = this.Validate()
+  loginPressed(): void{
+    this.loginError = this.validate()
     if (!this.loginError){
       this.signinService.SignIn(this.email, this.password)
     }
   }
   
-  Validate(): Boolean {
+  validate(): Boolean {
     if (this.email && this.password){
-      if (this.email.search(this.EMAIL_REGEX) != -1 ){
+      if (this.email.search(LoginComponent.EMAIL_REGEX) != -1 ){
         return false
       }
     }
