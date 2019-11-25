@@ -1,11 +1,11 @@
 import APIService from "../api-service.abstract";
 import { Injectable } from "@angular/core";
 
-@Injectable({ 
+@Injectable({
   providedIn: "root"
 })
-export default class UnauthAPIService extends APIService {
+export default class LandlordAPIService extends APIService {
   constructor() {
-    super("unauth/");
+      super("landlord/");
   }
 }
