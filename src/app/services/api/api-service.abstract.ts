@@ -1,26 +1,24 @@
-import { HTTP, HTTPResponse } from "@ionic-native/http/ngx";
 import { IAPIResponse } from "src/app/models/response/api-response.interface";
-
+import HTTPAbstract from "../http/http-service";
+import IHTTPResponse from "../http/http-response.interface";
 
 export default abstract class APIService {
-  protected static http: HTTP = new HTTP();
   protected baseURI = "https://localhost:44378/api/v1/";
   protected headers = {
     "Content-Type": "application/json"
   };
 
-  constructor(domain: string) {
+  constructor(private http: HTTPAbstract, domain: string) {
     this.baseURI += domain;
-    APIService.http.setDataSerializer("json");
   }
 
   async Post<T>(endpoint: string, payload: object): Promise<IAPIResponse<T>> {
-    const response: HTTPResponse = await APIService.http.post(this.baseURI + endpoint, payload, this.headers);
+    const response: IHTTPResponse = await this.http.Post(this.baseURI + endpoint, payload, this.headers);
 
-    const data = JSON.parse(response.data);
+    const data = JSON.parse(response.body);
 
     return {
-      statusCode: response.status,
+      statusCode: response.statusCode,
       errors: data.errors,
       payload: data.payload
     };
