@@ -10,7 +10,7 @@ export default class HTTPCordova implements HTTPAbstract {
   private static http: HTTP = new HTTP();
 
   constructor() {
-    HTTPCordova.http.setDataSerializer("json");
+    
   }
 
   async Post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
@@ -27,7 +27,6 @@ export default class HTTPCordova implements HTTPAbstract {
       method: "post",
       serializer: "json",
       headers: headers,
-      responseType: "json",
       data: body
     }).then((res) => {
       result.body = res.data,

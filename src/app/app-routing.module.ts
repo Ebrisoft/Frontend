@@ -7,10 +7,13 @@ const routes: Routes = [
       loadChildren: () => import("./views/login/login.module").then(m => m.LoginModule)
   },
   {
-    path: "home",
-      loadChildren: () => import("./views/tabs/tabs.module").then(m => m.TabsPageModule)
+    path: "tenant",
+      loadChildren: () => import("./views/tenant/tabs/tabs.module").then(m => m.TabsPageModule)
+  },
+  {
+    path: "landlord",
+      loadChildren: () => import("./views/landlord/tabs/tabs.module").then(m => m.TabsPageModule)
   }
-
 ];
 @NgModule({
   imports: [

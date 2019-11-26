@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import SigninService from "src/app/services/api/unauth/sign-in-service";
 import { Router } from "@angular/router";
-import ActiveRole from "src/app/services/active-role";
 import { Role } from "../../models/utils/role.enum";
 
 @Component({
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string;
   loginError: boolean;
 
-  constructor(private signinService: SigninService, private activeRole: ActiveRole, private router: Router) {
+  constructor(private signinService: SigninService, private router: Router) {
     
   }
 
@@ -39,16 +38,12 @@ export class LoginComponent implements OnInit {
      
       switch (response.payload.roles[0]) {
         case "tenant":
-          this.activeRole.setRole(Role.TENANT);
+          this.router.navigate(["/tenant"]);
           break;
         case "landlord":
-          this.activeRole.setRole(Role.LANDLORD);
-          break;
-        default:
-          this.activeRole.setRole(Role.DEFAULT);
+          this.router.navigate(["/landlord"]);
           break;
       }
-      this.router.navigate(["/home"]);
     }
   }
 

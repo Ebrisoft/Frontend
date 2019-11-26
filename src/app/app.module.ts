@@ -11,6 +11,10 @@ import { AppComponent } from "./app.component";
 import HTTPService from "./services/http/http-service";
 import HTTPWeb from "./services/http/http-web";
 import HTTPCordova from "./services/http/http-cordova";
+import TenantFeedService from "./services/api/tenant/feed-service";
+import LandlordFeedService from "./services/api/landlord/feed-service";
+import TenantAPIService from "./services/api/tenant/tentant-api-service";
+import LandlordAPIService from "./services/api/landlord/lanlord-api-service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +33,15 @@ import HTTPCordova from "./services/http/http-cordova";
         
         return new HTTPWeb();
       },
-      deps: [Platform]
+      deps: [ Platform ]
+    },
+    {
+      provide: TenantFeedService,
+      deps: [ TenantAPIService ]
+    },
+    {
+      provide: LandlordFeedService,
+      deps: [ LandlordAPIService ]
     }
   ],
   bootstrap: [AppComponent]
