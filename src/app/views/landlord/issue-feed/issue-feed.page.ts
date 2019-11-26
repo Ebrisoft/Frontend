@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
+import LandlordFeedService from "src/app/services/api/landlord/feed-service";
 import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 
 @Component({
@@ -6,11 +7,15 @@ import IIssueResponse from "src/app/models/response/landlord/issue-response.inte
   templateUrl: "issue-feed.page.html",
   styleUrls: ["issue-feed.page.scss"]
 })
-export class IssueFeedPage {
+export class IssueFeedPage implements OnInit {
 
-  mockIssues: IIssueResponse;
+  issues: IIssueResponse[];
 
-  constructor() {
+  constructor(@Inject(LandlordFeedService) private feedService: LandlordFeedService) {
   }
 
+  async ngOnInit() {
+    const response = await this.feedService.getFeed();
+    this.issues = response.payload;
+  }
 }
