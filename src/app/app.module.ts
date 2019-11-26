@@ -12,7 +12,7 @@ import HTTPService from "./services/http/http-service";
 import HTTPWeb from "./services/http/http-web";
 import HTTPCordova from "./services/http/http-cordova";
 import ActiveRole from "./services/active-role";
-import TenantFeedService from "./services/api/Tenant/feed-service";
+import TenantFeedService from "./services/api/tenant/feed-service";
 import LandlordFeedService from "./services/api/Landlord/feed-service";
 
 @NgModule({

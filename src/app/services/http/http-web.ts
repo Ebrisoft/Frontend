@@ -11,6 +11,7 @@ export default class HTTPWeb implements HTTPAbstract {
     const result = await fetch(url, {
       method: "POST",
       headers: headers,
+      credentials: "include",
       body: JSON.stringify(body)
     });
     

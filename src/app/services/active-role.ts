@@ -1,5 +1,5 @@
 import UnauthApiService from "./api/unauth/unauth-api-service";
-import LandlordApiService from "./api/Tenant/tentant-api-service";
+import LandlordApiService from "./api/tenant/tentant-api-service";
 import TenantApiService from "./api/Landlord/lanlord-api-service";
 import APIService from "./api/api-service.abstract";
 import { IAPIResponse } from "../models/response/api-response.interface";
@@ -14,8 +14,8 @@ export default class ActiveRole {
   private currentService: APIService;
   private currentRole: Role;
 
-  constructor(private unauthApiService: UnauthApiService, 
-    private landlordApiService: LandlordApiService, 
+  constructor(private unauthApiService: UnauthApiService,
+    private landlordApiService: LandlordApiService,
     private tenantApiService: TenantApiService) {
     this.setRole(Role.DEFAULT);
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Issue } from "../../models/issue";
+import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 
 @Component({
   selector: "app-issue-card",
@@ -8,7 +8,7 @@ import { Issue } from "../../models/issue";
 })
 export class IssueCardComponent implements OnInit {
 
-  @Input() issue: Issue;
+  @Input() issue: IIssueResponse;
 
   constructor() { 
   }

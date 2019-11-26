@@ -3,8 +3,8 @@ import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IssueFeedPage } from "./issue-feed.page";
-import { IssueCardComponent } from "src/app/components/issue-card/issue-card.component";
-import TenantFeedService from "src/app/services/api/Tenant/feed-service";
+import TenantFeedService from "src/app/services/api/tenant/feed-service";
+import { IssueCardComponent } from "src/app/components/tenant/issue-card/issue-card.component";
 
 @NgModule({
   imports: [
