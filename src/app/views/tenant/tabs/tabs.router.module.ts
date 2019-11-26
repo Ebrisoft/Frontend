@@ -18,6 +18,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: "pinboard",
+        children: [
+          {
+            path: "",
+            loadChildren: () =>
+              import("../pinboard/pinboard.module").then(m => m.PinboardPageModule)
+          }
+        ]
+      },
+      {
         path: "",
         redirectTo: "tabs/issue-feed",
         pathMatch: "full"
