@@ -12,14 +12,33 @@ export default class HTTPCordova implements HTTPAbstract {
   constructor() {
     HTTPCordova.http.setDataSerializer("json");
   }
-  
-  async Post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
-    const result = await HTTPCordova.http.post(url, body, headers);
 
-    return {
-      body: result.data,
-      headers: result.headers,
-      statusCode: result.status
+  async Post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
+    
+    // const rrresult = await HTTPCordova.http.post(url, body, headers);
+
+    const result: IHTTPResponse = {
+      body: "",
+      headers: "",
+      statusCode: -1
     };
+
+    await HTTPCordova.http.sendRequest(url, {
+      method: "post",
+      serializer: "json",
+      headers: headers,
+      responseType: "json",
+      data: body
+    }).then((res) => {
+      result.body = res.data,
+      result.headers = res.headers,
+      result.statusCode = res.status;
+    }).catch((res) => {
+      result.body = res.error,
+      result.headers = res.headers,
+      result.statusCode = res.status;
+    });
+
+    return result;
   }
 }

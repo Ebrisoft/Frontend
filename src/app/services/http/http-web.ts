@@ -7,14 +7,15 @@ import { Injectable } from "@angular/core";
 })
 export default class HTTPWeb implements HTTPAbstract {
   async Post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
+   
     const result = await fetch(url, {
       method: "POST",
       headers: headers,
       body: JSON.stringify(body)
     });
-
+    
     return {
-      body: result.json(),
+      body: await result.json(),
       headers: result.headers,
       statusCode: result.status
     };
