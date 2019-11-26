@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { MOCK_ISSUES } from "../../models/mock-issue";
+import { MOCK_ISSUES } from "../../../models/mock-issue";
 
 @Component({
   selector: "app-issue-feed",
@@ -10,6 +10,8 @@ export class IssueFeedPage {
 
   mockIssues = MOCK_ISSUES;
 
-  constructor() {}
+  constructor() {
+
+  }
 
 }

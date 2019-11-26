@@ -39,7 +39,7 @@ export default class ActiveRole {
     }
   }
 
-  async APIRequest<T>(endpoint: string, payload: object): Promise<IAPIResponse<T>> {
+  async APIRequest<T>(endpoint: string, payload: object = null): Promise<IAPIResponse<T>> {
     return this.currentService.Post<T>(endpoint, payload);
   }
 

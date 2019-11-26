@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IssueFeedPage } from "./issue-feed.page";
 import { IssueCardComponent } from "src/app/components/issue-card/issue-card.component";
-import { FormsModule } from "@angular/forms";
+import LandlordFeedService from "src/app/services/api/Landlord/feed-service";
 
 @NgModule({
   imports: [
@@ -12,6 +12,7 @@ import { FormsModule } from "@angular/forms";
     CommonModule,
     RouterModule.forChild([{ path: "", component: IssueFeedPage }])
   ],
+  providers: [ LandlordFeedService ],
   declarations: [
     IssueFeedPage,
     IssueCardComponent

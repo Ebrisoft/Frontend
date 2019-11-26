@@ -40,15 +40,16 @@ export class LoginComponent implements OnInit {
       switch (response.payload.roles[0]) {
         case "tenant":
           this.activeRole.setRole(Role.TENANT);
+          this.router.navigate(["/tenant"]);
           break;
-        case "landlord":
-          this.activeRole.setRole(Role.LANDLORD);
+          case "landlord":
+            this.activeRole.setRole(Role.LANDLORD);
+            this.router.navigate(["/landlord"]);
           break;
         default:
           this.activeRole.setRole(Role.DEFAULT);
           break;
       }
-      this.router.navigate(["/home"]);
     }
   }
 
