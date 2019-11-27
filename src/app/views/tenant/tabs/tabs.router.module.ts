@@ -14,6 +14,16 @@ const routes: Routes = [
             path: "",
             loadChildren: () =>
               import("../issue-feed/issue-feed.module").then(m => m.IssueFeedModule)
+          },
+          {
+            path: "new-issue",
+            children: [
+              {
+                path: "",
+                loadChildren: () =>
+                  import("../new-issue/new-issue.module").then(m => m.NewIssuePageModule)
+              }
+            ]
           }
         ]
       },

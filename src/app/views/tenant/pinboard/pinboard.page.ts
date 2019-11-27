@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input } from "@angular/core";
-import TenantPinboardService from "src/app/services/api/tenant/pinboard-service";
+import TenantPinboardAPIService from "src/app/services/api/tenant/pinboard-api-service";
 import IPinboardResponse from "src/app/models/response/tenant/pinboard-response.interface";
 
 @Component({
@@ -12,7 +12,7 @@ export class PinboardPage implements OnInit {
 
   @Input() pinboard: IPinboardResponse;
 
-  constructor(@Inject(TenantPinboardService) private pinboardService: TenantPinboardService) { }
+  constructor(@Inject(TenantPinboardAPIService) private pinboardService: TenantPinboardAPIService) { }
 
   async ngOnInit() {
     const response = await this.pinboardService.getPinBoard();

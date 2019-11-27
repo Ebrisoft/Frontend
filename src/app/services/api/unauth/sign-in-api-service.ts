@@ -2,11 +2,11 @@ import { ISignInRequest } from "src/app/models/request/unauth/sign-in-request.in
 import { ISignInResponse } from "src/app/models/response/unauth/sign-in-response.interface";
 import { IAPIResponse } from "src/app/models/response/api-response.interface";
 import { Injectable } from "@angular/core";
-import UnauthAPIService from "./unauth-api-service";
+import UnauthBaseAPIService from "./unauth-base-api-service";
 
 @Injectable()
-export default class SigninService {
-  constructor(private apiService: UnauthAPIService) {
+export default class SigninAPIService {
+  constructor(private apiService: UnauthBaseAPIService) {
 
   }
 
@@ -16,6 +16,6 @@ export default class SigninService {
       password: password
     };
     
-    return await this.apiService.Post<ISignInResponse>("signin", payload);
+    return await this.apiService.post<ISignInResponse>("signin", payload);
   }
 }

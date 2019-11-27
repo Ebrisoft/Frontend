@@ -4,11 +4,11 @@ import { RouterModule } from "@angular/router";
 import { LoginComponent } from "./login.page";
 import { IonicModule } from "@ionic/angular";
 import { FormsModule } from "@angular/forms";
-import SignInService from "../../services/api/unauth/sign-in-service";
+import SignInAPIService from "../../services/api/unauth/sign-in-api-service";
 
 @NgModule({
   declarations: [ LoginComponent ],
-  providers: [ SignInService ],
+  providers: [ SignInAPIService ],
   imports: [
     IonicModule,
     FormsModule,

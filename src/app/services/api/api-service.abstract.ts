@@ -12,8 +12,8 @@ export default abstract class APIService {
     this.baseURI += domain;
   }
 
-  async Post<T>(endpoint: string, payload: object): Promise<IAPIResponse<T>> {
-    const response: IHTTPResponse = await this.http.Post(this.baseURI + endpoint, payload, this.headers);
+  async post<T>(endpoint: string, payload: object): Promise<IAPIResponse<T>> {
+    const response: IHTTPResponse = await this.http.post(this.baseURI + endpoint, payload, this.headers);
 
     return {
       statusCode: response.statusCode,
