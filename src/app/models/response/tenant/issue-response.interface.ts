@@ -4,6 +4,6 @@ export default interface IIssueResponse {
   title: string;
   content: string;
   createdAt: string;
-  isResloved: boolean;
+  isResolved: boolean;
   author: IUserResponse;
 }
