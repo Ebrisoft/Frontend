@@ -1,10 +1,23 @@
-<ion-card class="welcome-card">
-  <img src="/assets/shapes.svg" alt="" />
-  <ion-card-header>
-    <ion-card-subtitle>Urgent</ion-card-subtitle>
-    <ion-card-title>Sink</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <p>{{ issue.content }}</p>
-  </ion-card-content>
-</ion-card>
+<div class="container">
+  <ion-card>
+    <ion-item lines="inset">
+      <ion-card-header>
+        <ion-card-title>{{ issue.title }}</ion-card-title>
+        <ion-card-subtitle>{{ issue.author.userName }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-thumbnail slot="end">
+        <img src="../../../../assets/shapes.svg">
+      </ion-thumbnail>
+    </ion-item>
+    
+    <ion-card-content>
+      <ion-text>
+        {{ issue.content }} helhlhelshelshelhsleeshl
+      </ion-text>
+      <div class="issue-meta">
+        <ion-icon class="icon" name="calendar"></ion-icon>
+        <p>{{ parsedDate }}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>
