@@ -22,7 +22,7 @@ export class IssueFeedPage implements OnInit {
   }
 
   newIssue() {
-    this.router.navigate(["/new-issue"]);
+    this.router.navigate([this.router.url + "/new-issue"]);
     console.log("creating new issue");
   }
 }
