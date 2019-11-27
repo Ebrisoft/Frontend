@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start" shape="round" size="medium" id="close">
+    <ion-button slot="start" shape="round" size="medium" (click)="cancelPressed()">
         <ion-icon name="close" ></ion-icon>
     </ion-button>
     <ion-title>Create New Issue</ion-title>
-    <ion-button slot="end" shape="round" size="medium" id="checkmark">
+    <ion-button slot="end" shape="round" size="medium" (click)="checkPressed()">
       <ion-icon name="checkmark">
       </ion-icon></ion-button>
   </ion-toolbar>
@@ -17,6 +17,6 @@
     </ion-item>
     <ion-item>
         <ion-label class = "label" position="stacked" required="true">Issue Description</ion-label>
-        <ion-textarea auto-grow="true" placeholder="Enter issue information here..."></ion-textarea>
+        <ion-textarea auto-grow="true" placeholder="Enter issue information here..." type="content" [(ngModel)]="content"></ion-textarea>
     </ion-item>
 </ion-content>

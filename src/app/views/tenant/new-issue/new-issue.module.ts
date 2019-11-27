@@ -15,7 +15,7 @@ import { NewIssuePage } from "./new-issue.page";
   ],
   declarations: [NewIssuePage]
 })
+
 export class NewIssuePageModule {
 
-  
 }

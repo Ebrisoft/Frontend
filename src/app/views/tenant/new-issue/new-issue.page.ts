@@ -7,7 +7,24 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NewIssuePage implements OnInit {
 
-  constructor() { }
+  title: string;
+  content: string;
+
+  constructor() {
+    
+  }
+
+  checkPressed() {
+    console.log("Check!");
+    console.log("title: " + this.title);
+    console.log("content: " + this.content);
+  }
+
+  cancelPressed() {
+    console.log("Cance!");
+    console.log("title: " + this.title);
+    console.log("content: " + this.content);
+  }
 
   ngOnInit() {
   }
