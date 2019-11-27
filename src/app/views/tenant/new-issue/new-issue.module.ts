@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { NewIssuePage } from "./new-issue.page";
+import CreateIssueService from "src/app/services/api/landlord/create-issue-service";
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { NewIssuePage } from "./new-issue.page";
     IonicModule,
     RouterModule.forChild([{path: "", component: NewIssuePage}])
   ],
+  providers: [ CreateIssueService ],
   declarations: [NewIssuePage]
 })
 

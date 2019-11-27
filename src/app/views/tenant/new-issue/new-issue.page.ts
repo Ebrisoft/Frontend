@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import CreateIssueService from "src/app/services/api/landlord/create-issue-service";
 
 @Component({
   selector: "app-new-issue",
@@ -10,20 +11,15 @@ export class NewIssuePage implements OnInit {
   title: string;
   content: string;
 
-  constructor() {
+  constructor(private createIssueService: CreateIssueService) {
     
   }
 
-  checkPressed() {
-    console.log("Check!");
-    console.log("title: " + this.title);
-    console.log("content: " + this.content);
+  async checkPressed(): Promise<void> {
+    const response = await this.createIssueService.CreateIssue(this.title, this.content);
   }
 
   cancelPressed() {
-    console.log("Cance!");
-    console.log("title: " + this.title);
-    console.log("content: " + this.content);
   }
 
   ngOnInit() {
