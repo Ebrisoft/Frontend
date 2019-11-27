@@ -16,6 +16,6 @@ export default class SigninAPIService {
       password: password
     };
     
-    return await this.apiService.Post<ISignInResponse>("signin", payload);
+    return await this.apiService.post<ISignInResponse>("signin", payload);
   }
 }

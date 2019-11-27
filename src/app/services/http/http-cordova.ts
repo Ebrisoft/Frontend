@@ -13,7 +13,7 @@ export default class HTTPCordova implements HTTPAbstract {
     
   }
 
-  async Post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
+  async post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
     
     // const rrresult = await HTTPCordova.http.post(url, body, headers);
 

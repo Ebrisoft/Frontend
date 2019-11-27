@@ -6,12 +6,12 @@ export default class TenantCreateIssueAPIService {
 
   }
 
-  async CreateIssue(title: string, content: string): Promise<void> {
+  async createIssue(title: string, content: string): Promise<void> {
     const payload: ICreateIssueRequest = {
       title: title,
       content: content
     };
 
-    await this.apiService.Post("createissue", payload);
+    await this.apiService.post("createissue", payload);
   }
 }

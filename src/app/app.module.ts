@@ -11,7 +11,7 @@ import { AppComponent } from "./app.component";
 import HTTPService from "./services/http/http-service";
 import HTTPWeb from "./services/http/http-web";
 import HTTPCordova from "./services/http/http-cordova";
-import TenantFeedService from "./services/api/tenant/feed-api-service";
+import TenantFeedAPIService from "./services/api/tenant/feed-api-service";
 import LandlordFeedAPIService from "./services/api/landlord/feed-api-service";
 import TenantBaseAPIService from "./services/api/tenant/tentant-base-api-service";
 import LandlordBaseAPIService from "./services/api/landlord/landlord-base-api-service";
@@ -36,7 +36,7 @@ import LandlordBaseAPIService from "./services/api/landlord/landlord-base-api-se
       deps: [ Platform ]
     },
     {
-      provide: TenantFeedService,
+      provide: TenantFeedAPIService,
       deps: [ TenantBaseAPIService ]
     },
     {

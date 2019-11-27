@@ -8,7 +8,7 @@ import axios from "axios";
 })
 export default class HTTPWeb implements HTTPAbstract {
 
-  async Post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
+  async post(url: string, body: object, headers: any): Promise<IHTTPResponse> {
   
     const result = async (): Promise<IHTTPResponse> => {
         const response = await axios.post(url, body, {

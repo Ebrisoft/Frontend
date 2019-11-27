@@ -30,8 +30,8 @@ export class NewIssuePage implements OnInit {
 
   async checkPressed(): Promise<void> {
     if (this.isFormValid) {
-    const response = await this.tenantCreateIssueAPIService.CreateIssue(this.title, this.content);
-    this.routeBack();
+      const response = await this.tenantCreateIssueAPIService.createIssue(this.title, this.content);
+      this.routeBack();
     } else {
       this.presentToast();
     }
@@ -55,7 +55,6 @@ export class NewIssuePage implements OnInit {
     if (this.content.length === 0) {
       this.isFormValid = false;
     }
-
 
     console.log("Valid: " + this.isFormValid);
   }

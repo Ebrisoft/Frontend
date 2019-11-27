@@ -11,6 +11,6 @@ export default class TenantFeedService {
   }
 
   async getFeed(): Promise<IAPIResponse<IIssueResponse[]>> {
-    return await this.apiService.Post<IIssueResponse[]>("getfeed", null);
+    return await this.apiService.post<IIssueResponse[]>("getfeed", null);
   }
 }
