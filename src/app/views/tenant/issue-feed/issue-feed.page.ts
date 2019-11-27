@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from "@angular/core";
+import { Router } from "@angular/router";
 import TenantFeedService from "src/app/services/api/tenant/feed-service";
 import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
 
@@ -12,11 +13,16 @@ export class IssueFeedPage implements OnInit {
 
   issues: IIssueResponse[];
 
-  constructor(@Inject(TenantFeedService) private feedService: TenantFeedService) {
+  constructor(@Inject(TenantFeedService) private feedService: TenantFeedService, private router: Router) {
   }
 
   async ngOnInit() {
     const response = await this.feedService.getFeed();
     this.issues = response.payload;
+  }
+
+  newIssue() {
+    //this.router.navigate(["/tenant"]);
+    console.log("creating new issue");
   }
 }
