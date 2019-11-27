@@ -1,12 +1,12 @@
 import { IAPIResponse } from "src/app/models/response/api-response.interface";
 import { Injectable } from "@angular/core";
-import LandlordAPIService from "./lanlord-api-service";
+import LandlordBaseAPIService from "./landlord-base-api-service";
 import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 
 @Injectable()
-export default class LandlordFeedService {
+export default class LandlordFeedAPIService {
 
-  constructor(private apiService: LandlordAPIService) {
+  constructor(private apiService: LandlordBaseAPIService) {
     
   }
 

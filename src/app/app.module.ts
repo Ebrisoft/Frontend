@@ -11,10 +11,10 @@ import { AppComponent } from "./app.component";
 import HTTPService from "./services/http/http-service";
 import HTTPWeb from "./services/http/http-web";
 import HTTPCordova from "./services/http/http-cordova";
-import TenantFeedService from "./services/api/tenant/feed-service";
-import LandlordFeedService from "./services/api/landlord/feed-service";
-import TenantAPIService from "./services/api/tenant/tentant-api-service";
-import LandlordAPIService from "./services/api/landlord/lanlord-api-service";
+import TenantFeedService from "./services/api/tenant/feed-api-service";
+import LandlordFeedAPIService from "./services/api/landlord/feed-api-service";
+import TenantBaseAPIService from "./services/api/tenant/tentant-base-api-service";
+import LandlordBaseAPIService from "./services/api/landlord/landlord-base-api-service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,11 +37,11 @@ import LandlordAPIService from "./services/api/landlord/lanlord-api-service";
     },
     {
       provide: TenantFeedService,
-      deps: [ TenantAPIService ]
+      deps: [ TenantBaseAPIService ]
     },
     {
-      provide: LandlordFeedService,
-      deps: [ LandlordAPIService ]
+      provide: LandlordFeedAPIService,
+      deps: [ LandlordBaseAPIService ]
     }
   ],
   bootstrap: [AppComponent]

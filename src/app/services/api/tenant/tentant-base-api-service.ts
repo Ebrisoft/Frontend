@@ -5,7 +5,7 @@ import HTTPAbstract from "../../http/http-service";
 @Injectable({
   providedIn: "root"
 })
-export default class TenantAPIService extends APIService {
+export default class TenantBaseAPIService extends APIService {
   constructor(@Inject(HTTPAbstract) http: HTTPAbstract) {
     super(http, "tenant/");
   }

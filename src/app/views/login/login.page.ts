@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import SigninService from "src/app/services/api/unauth/sign-in-service";
+import SigninAPIService from "src/app/services/api/unauth/sign-in-api-service";
 import { Router } from "@angular/router";
 import { Role } from "../../models/utils/role.enum";
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string;
   loginError: boolean;
 
-  constructor(private signinService: SigninService, private router: Router) {
+  constructor(private signinAPIService: SigninAPIService, private router: Router) {
     
   }
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.loginError = this.validate();
     
     if (!this.loginError) {
-      const response = await this.signinService.SignIn(this.email, this.password);
+      const response = await this.signinAPIService.SignIn(this.email, this.password);
       if (response.statusCode !== 200) {
         // TODO: Panic at the disco! 
 

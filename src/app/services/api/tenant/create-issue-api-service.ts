@@ -1,8 +1,8 @@
-import TenantAPIService from "../tenant/tentant-api-service";
+import TenantBaseAPIService from "./tentant-base-api-service";
 import { ICreateIssueRequest } from "src/app/models/request/tenant/create-issues-request.interface";
 
-export default class CreateIssueService {
-  constructor(private apiService: TenantAPIService ) {
+export default class TenantCreateIssueAPIService {
+  constructor(private apiService: TenantBaseAPIService ) {
 
   }
 

@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { PinboardPage } from "./pinboard.page";
-import TenantPinBoardService from "src/app/services/api/tenant/pinboard-service";
+import TenantPinBoardAPIService from "src/app/services/api/tenant/pinboard-api-service";
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import TenantPinBoardService from "src/app/services/api/tenant/pinboard-service"
     IonicModule,
     RouterModule.forChild([{path: "", component: PinboardPage}])
   ],
-  providers: [ TenantPinBoardService ],
+  providers: [ TenantPinBoardAPIService ],
   declarations: [
     PinboardPage
   ]

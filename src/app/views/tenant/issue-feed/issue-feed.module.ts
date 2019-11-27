@@ -3,7 +3,7 @@ import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IssueFeedPage } from "./issue-feed.page";
-import TenantFeedService from "src/app/services/api/tenant/feed-service";
+import TenantFeedAPIService from "src/app/services/api/tenant/feed-api-service";
 import { IssueCardComponent } from "src/app/components/tenant/issue-card/issue-card.component";
 
 @NgModule({
@@ -12,7 +12,7 @@ import { IssueCardComponent } from "src/app/components/tenant/issue-card/issue-c
     CommonModule,
     RouterModule.forChild([{ path: "", component: IssueFeedPage }])
   ],
-  providers: [ TenantFeedService ],
+  providers: [ TenantFeedAPIService ],
   declarations: [
     IssueFeedPage,
     IssueCardComponent
