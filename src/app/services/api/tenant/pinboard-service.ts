@@ -11,6 +11,6 @@ export default class TenantPinBoardService {
   }
 
   async getPinBoard(): Promise<IAPIResponse<IPinboardResponse>>  {
-      return await this.apiService.Post<IPinboardResponse>("getPinBoard", null);
+    return await this.apiService.Post<IPinboardResponse>("getPinBoard", null);
   }
 }

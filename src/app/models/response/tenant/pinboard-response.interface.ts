@@ -1,3 +1,3 @@
 export default interface IPinboardResponse {
-    text: string;
+  text: string;
 }

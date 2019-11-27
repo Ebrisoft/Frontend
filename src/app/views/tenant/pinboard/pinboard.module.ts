@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { PinboardPage } from "./pinboard.page";
-import TenantPinBoardService from 'src/app/services/api/tenant/pinboard-service';
+import TenantPinBoardService from "src/app/services/api/tenant/pinboard-service";
 
 @NgModule({
   imports: [
