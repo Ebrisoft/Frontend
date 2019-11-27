@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: "landlord",
       loadChildren: () => import("./views/landlord/tabs/tabs.module").then(m => m.TabsPageModule)
-  }
+  },  { path: 'new-issue', loadChildren: './views/tenant/new-issue/new-issue.module#NewIssuePageModule' }
+
 ];
 
 @NgModule({

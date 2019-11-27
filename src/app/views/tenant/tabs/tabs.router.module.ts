@@ -28,6 +28,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: "new-issue",
+        children: [
+          {
+            path: "",
+            loadChildren: () =>
+              import("../new-issue/new-issue.module").then(m => m.NewIssuePageModule)
+          }
+        ]
+      },
+      {
         path: "",
         redirectTo: "tabs/issue-feed",
         pathMatch: "full"
