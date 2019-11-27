@@ -8,11 +8,15 @@ import IIssueResponse from "src/app/models/response/tenant/issue-response.interf
 })
 export class IssueCardComponent implements OnInit {
 
-  @Input() issue: IIssueResponse;
+  @Input() 
+  private issue: IIssueResponse;
+  
+  private parsedDate: string;
 
-  constructor() { 
+  constructor() { }
+
+  ngOnInit() {
+    this.parsedDate = new Date(this.issue.createdAt).toLocaleDateString();
   }
-
-  ngOnInit() {}
 
 }
