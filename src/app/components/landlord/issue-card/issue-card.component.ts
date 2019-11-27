@@ -9,10 +9,11 @@ import IIssueResponse from "src/app/models/response/landlord/issue-response.inte
 export class IssueCardComponent implements OnInit {
 
   @Input() issue: IIssueResponse;
+  private parsedDate: string;
 
-  constructor() { 
+  constructor() {}
+
+  ngOnInit() {
+    this.parsedDate = new Date(this.issue.createdAt).toLocaleDateString();
   }
-
-  ngOnInit() {}
-
 }
