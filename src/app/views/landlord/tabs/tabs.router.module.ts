@@ -4,6 +4,16 @@ import { TabsPage } from "./tabs.page";
 
 const routes: Routes = [
   {
+    path: "new-issue",
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("../new-issue/new-issue.module").then(m => m.NewIssuePageModule)
+      }
+    ]
+  },
+  {
     path: "tabs",
     component: TabsPage,
     children: [
