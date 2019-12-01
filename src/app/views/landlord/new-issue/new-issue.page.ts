@@ -39,7 +39,7 @@ export class NewIssuePage implements OnInit {
         options: [
           {text: "Low", value: "0"},
           {text: "Medium", value: "1"},
-          {text: "Heigh", value: "2"},
+          {text: "High", value: "2"},
         ]
       }]
     };
@@ -65,6 +65,7 @@ export class NewIssuePage implements OnInit {
   async checkPressed(): Promise<void> {
     if (this.isFormValid) {
       //FIX: Payload always has priority 1
+      console.log("priority: " + this.priority)
       const response = await this.landlordCreateIssueAPIService.createIssue(this.title, this.content, this.houseId, this.priority);
       this.routeBack();
     } else {
