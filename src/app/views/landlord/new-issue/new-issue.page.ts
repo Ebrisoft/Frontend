@@ -3,7 +3,7 @@ import LandlordCreateIssueAPIService from "src/app/services/api/landlord/create-
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { ToastController, PickerController } from "@ionic/angular";
-import { PickerOptions } from '@ionic/core';
+import { PickerOptions } from "@ionic/core";
 import { Priority } from "../../../utils/priority.enum"
 
 @Component({
@@ -64,8 +64,6 @@ export class NewIssuePage implements OnInit {
 
   async checkPressed(): Promise<void> {
     if (this.isFormValid) {
-      //FIX: Payload always has priority 1
-      console.log("priority: " + this.priority)
       const response = await this.landlordCreateIssueAPIService.createIssue(this.title, this.content, this.houseId, this.priority);
       this.routeBack();
     } else {

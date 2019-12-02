@@ -5,16 +5,16 @@
     </ion-button>
     <ion-title>Create New Issue</ion-title>
     <ion-button slot="end" shape="round" size="medium" (click)="checkPressed()">
-      <ion-icon name="checkmark">
-      </ion-icon></ion-button>
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-      <ion-label class = "label">Priority</ion-label>
-      <ion-label class = "label" color="primary">{{ priorityString }}</ion-label>
-      <ion-button class = "label" slot="end" fill="clear" (click)="showPicker()">Change</ion-button>
+    <ion-label class = "label">Priority</ion-label>
+    <ion-label class = "label" color="primary">{{ priorityString }}</ion-label>
+    <ion-button class = "label" slot="end" fill="clear" (click)="showPicker()">Change</ion-button>
   </ion-item>
   <ion-item>
     <ion-label class = "label" position="stacked" required="true">Issue Title</ion-label>
