@@ -9,6 +9,7 @@ export default class LandlordHouseAPIService {
   constructor(private apiService: LandlordBaseAPIService) {
     
   }
+
   async getHouses(): Promise<IAPIResponse<IHouseResponse[]>> {
     return await this.apiService.post<IHouseResponse[]>("gethouses", null);
   }

@@ -24,4 +24,9 @@ export class HouseSelectPage implements OnInit {
   routeBack() {
     this.location.back();
   }
+
+  addHouse() {
+    //TODO: Add House
+    console.log("Add house pressed");
+  }
 }

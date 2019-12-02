@@ -13,4 +13,9 @@ export class HouseListItemComponent implements OnInit {
 
   ngOnInit() {}
 
+  setCurrentHouse() {
+    localStorage.setItem("CurrentHouse", JSON.stringify(this.house));
+    console.log("current house set");
+  }
+
 }
