@@ -1,27 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start" shape="round" size="medium" (click)="cancelPressed()">
-      <ion-icon name="close" ></ion-icon>
+    <ion-button slot="start" shape="round" size="large" fill="clear" (click)="cancelPressed()">
+      <ion-icon name="arrow-back"></ion-icon>
     </ion-button>
-    <ion-title>Create New Issue</ion-title>
-    <ion-button slot="end" shape="round" size="medium" (click)="checkPressed()">
-      <ion-icon name="checkmark"></ion-icon>
+    <ion-title>New Issue</ion-title>
+    <ion-button slot="end" shape="round" size="large" fill="clear" (click)="checkPressed()">
+      <!-- <ion-icon name="checkmark"></ion-icon> -->
+      <span class="toolbar-text">POST</span>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label class = "label">Priority</ion-label>
-    <ion-label class = "label" color="primary">{{ priorityString }}</ion-label>
-    <ion-button class = "label" slot="end" fill="clear" (click)="showPicker()">Change</ion-button>
-  </ion-item>
-  <ion-item>
-    <ion-label class = "label" position="stacked" required="true">Issue Title</ion-label>
-    <ion-input type="title" [(ngModel)]="title" (ionChange)="checkChange()"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label class = "label" position="stacked" required="true">Issue Description</ion-label>
-    <ion-textarea auto-grow="true" placeholder="Enter issue information here..." type="content" [(ngModel)]="content"  (ionChange)="checkChange()"></ion-textarea>
-  </ion-item>
+  <ion-list lines="full">
+    <ion-item class="priority-input">
+      <ion-label class="label">Priority</ion-label>
+      <ion-label class="label priority-spinner" color="primary" (click)="showPicker()">{{ priorityString }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="label" position="floating">Title</ion-label>
+      <ion-input type="title" [(ngModel)]="title" (ionChange)="checkChange()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-textarea auto-grow="true" placeholder="Enter issue description here..." type="content" [(ngModel)]="content"
+        (ionChange)="checkChange()"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
