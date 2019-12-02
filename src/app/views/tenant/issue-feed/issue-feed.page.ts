@@ -16,13 +16,23 @@ export class IssueFeedPage implements OnInit {
   constructor(@Inject(TenantFeedAPIService) private feedService: TenantFeedAPIService, private router: Router) {
   }
 
-  async ngOnInit() {
+  async getIssues() {
     const response = await this.feedService.getFeed();
     this.issues = response.payload;
   }
 
+  doRefresh(event) {
+    setTimeout(() => {
+      this.getIssues();
+      event.target.complete();
+    }, 1000);
+  }
+
+  ngOnInit() {
+    this.getIssues();
+  }
+
   newIssue() {
     this.router.navigate(["tenant/new-issue"]);
-    console.log("creating new issue");
   }
 }
