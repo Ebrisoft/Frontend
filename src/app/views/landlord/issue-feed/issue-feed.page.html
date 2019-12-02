@@ -1,10 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Issues
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-page-header title="Issue"></app-page-header>
 
 <ion-content>
   <app-issue-card *ngFor="let issue of issues" [issue] = "issue"></app-issue-card>
