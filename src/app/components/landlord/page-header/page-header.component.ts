@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-page-header",
@@ -10,8 +11,12 @@ export class PageHeaderComponent implements OnInit {
   @Input()
   private title: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
+  selectIssue() {
+    this.router.navigate(["landlord/house-select"]);
+    console.log("navigating to house selector");
+  }
 }

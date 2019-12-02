@@ -4,6 +4,16 @@ import { TabsPage } from "./tabs.page";
 
 const routes: Routes = [
   {
+    path: "house-select",
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("../house-select/house-select.module").then(m => m.HouseSelectPageModule)
+      }
+    ]
+  },
+  {
     path: "new-issue",
     children: [
       {
