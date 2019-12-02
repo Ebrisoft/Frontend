@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { ToastController, PickerController } from "@ionic/angular";
 import { PickerOptions } from "@ionic/core";
-import { Priority } from "../../../utils/priority.enum"
+import { Priority } from "../../../utils/priority.enum";
 
 @Component({
   selector: "app-new-issue",
@@ -53,11 +53,11 @@ export class NewIssuePage implements OnInit {
     });
   }
 
-
   async presentToast() {
     const toast = await this.toastController.create({
-      message: "All fields must be filled to submit an issue",
-      duration: 2000
+      message: "All fields must have a value",
+      color: "danger",
+      duration: 3000
     });
     toast.present();
   }
