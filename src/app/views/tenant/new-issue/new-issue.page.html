@@ -12,15 +12,16 @@
 
 <ion-content>
   <ion-list lines="full">
+
     <ion-item>
       <ion-label class="label" position="floating">Title</ion-label>
       <ion-input type="title" [(ngModel)]="title" (ionChange)="checkChange()"></ion-input>
     </ion-item>
 
     <ion-item>
-
       <ion-textarea auto-grow="true" placeholder="Enter issue description here..." type="content" [(ngModel)]="content"
         (ionChange)="checkChange()"></ion-textarea>
     </ion-item>
+    
   </ion-list>
 </ion-content>

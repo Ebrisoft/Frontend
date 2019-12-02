@@ -12,6 +12,7 @@
 
 <ion-content>
   <ion-list lines="full">
+
     <ion-item class="priority-input">
       <ion-label class="label">Priority</ion-label>
       <ion-label class="label priority-spinner" color="primary" (click)="showPicker()">{{ priorityString }}</ion-label>
@@ -27,5 +28,6 @@
       <ion-textarea auto-grow="true" placeholder="Enter issue description here..." type="content" [(ngModel)]="content"
         (ionChange)="checkChange()"></ion-textarea>
     </ion-item>
+    
   </ion-list>
 </ion-content>
