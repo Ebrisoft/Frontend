@@ -11,7 +11,7 @@ export default class LandlordCreateIssueAPIService {
       title: title,
       content: content,
       houseId: houseId,
-      priority: houseId
+      priority: priority
     };
 
     await this.apiService.post("createissue", payload);
