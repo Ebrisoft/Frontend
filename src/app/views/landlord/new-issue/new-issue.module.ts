@@ -6,7 +6,6 @@ import { IonicModule } from "@ionic/angular";
 import { NewIssuePage } from "./new-issue.page";
 import LandlordCreateIssueAPIService from "src/app/services/api/landlord/create-issue-api-service";
 
-
 @NgModule({
   imports: [
     CommonModule,
