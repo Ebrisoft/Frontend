@@ -1,7 +1,7 @@
 <div class="container">
   <ion-card>
-    <ion-item color="primary">
-      <ion-card-header color="primary">
+    <ion-item lines="none" color="secondary">
+      <ion-card-header color="secondary">
         <ion-card-title>{{ issue.title }}</ion-card-title> 
         <ion-card-subtitle>{{ issue.author.userName }}</ion-card-subtitle>
       </ion-card-header>
@@ -15,8 +15,21 @@
         {{ issue.content }}
       </ion-text>
       <div class="issue-meta">
-        <ion-icon class="icon" name="calendar"></ion-icon>
-        <p>{{ parsedDate }}</p>
+        <div class="meta-item">
+          <ion-icon name="time"></ion-icon>
+          <p>{{ parsedDate }}</p>
+        </div>
+        <div class="meta-item">
+          <ion-icon name="alert"></ion-icon>
+          <p>{{ priorityDisplay }}</p>
+        </div>
+        <ion-chip color="secondary">
+          <ion-avatar>
+            <!-- TODO: Get value from server -->
+            <img src="https://www.evolutionsociety.org/userdata/news_picupload/pic_sid189-0-norm.jpg">
+          </ion-avatar>
+          <ion-label>{{ issue.author.name }}</ion-label>
+        </ion-chip>
       </div>
     </ion-card-content>
   </ion-card>
