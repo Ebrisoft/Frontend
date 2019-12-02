@@ -6,6 +6,7 @@ import { IssueFeedPage } from "./issue-feed.page";
 import LandlordFeedAPIService from "src/app/services/api/landlord/feed-api-service";
 import { IssueCardComponent } from "src/app/components/landlord/issue-card/issue-card.component";
 import { PageHeaderModule } from "src/app/components/landlord/page-header/page-header.module";
+import { CurrentHouseService } from "src/app/utils/current-house-service";
 
 @NgModule({
   imports: [
@@ -14,7 +15,9 @@ import { PageHeaderModule } from "src/app/components/landlord/page-header/page-h
     CommonModule,
     RouterModule.forChild([{ path: "", component: IssueFeedPage }])
   ],
-  providers: [ LandlordFeedAPIService ],
+  providers: [ 
+    LandlordFeedAPIService,
+    CurrentHouseService ],
   declarations: [
     IssueFeedPage,
     IssueCardComponent
