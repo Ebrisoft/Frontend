@@ -16,8 +16,8 @@ import { CurrentHouseService } from "src/app/utils/current-house-service";
     RouterModule.forChild([{ path: "", component: IssueFeedPage }])
   ],
   providers: [ 
-    LandlordFeedAPIService,
-    CurrentHouseService ],
+    LandlordFeedAPIService
+  ],
   declarations: [
     IssueFeedPage,
     IssueCardComponent

@@ -6,7 +6,6 @@ import { CurrentHouseService } from "src/app/utils/current-house-service";
   selector: "app-house-list-item",
   templateUrl: "./house-list-item.component.html",
   styleUrls: ["./house-list-item.component.scss"],
-  providers: [ CurrentHouseService ]
 })
 export class HouseListItemComponent implements OnInit {
 
@@ -16,8 +15,13 @@ export class HouseListItemComponent implements OnInit {
   ngOnInit() {}
 
   setCurrentHouse() {
-    this.currentHouseService.changeCurrentHouse(this.house);
-    console.log("current house set");
+    this.currentHouseService.setHouse(this.house);
+    console.log("current house set to: " + this.house.name);
+  }
+
+  clearCurrentHouse() {
+    this.currentHouseService.clearHouse();
+    console.log("cleared House ");
   }
 
 }

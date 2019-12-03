@@ -1,18 +1,21 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import IHouseResponse from "../models/response/landlord/house-response.interface";
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class CurrentHouseService {
 
-  private houseSource = new BehaviorSubject<IHouseResponse>({id: null, name: "", issues: []});
-  currentHouse = this.houseSource.asObservable();
+  private subject = new Subject<any>();
 
-  constructor() {
-
+  setHouse(house: IHouseResponse) {
+      this.subject.next(house);
   }
 
-  changeCurrentHouse(house: IHouseResponse) {
-    this.houseSource.next(house);
+  clearHouse() {
+      this.subject.next();
+  }
+
+  getCurrentHouse(): Observable<any> {
+      return this.subject.asObservable();
   }
 }

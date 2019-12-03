@@ -4,6 +4,7 @@ import IIssueResponse from "src/app/models/response/landlord/issue-response.inte
 import { Router } from "@angular/router";
 import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
 import { CurrentHouseService } from "src/app/utils/current-house-service";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: "app-issue-feed",
@@ -14,14 +15,22 @@ export class IssueFeedPage implements OnInit {
 
   issues: IIssueResponse[];
   currentHouse: IHouseResponse;
+  subscription: Subscription;
 
-  constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, @Inject(CurrentHouseService) private currentHouseService: CurrentHouseService) {
+  constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, private currentHouseService: CurrentHouseService) {
+    this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {
+      if (currentHouse){
+        this.currentHouse = currentHouse;
+      } else {
+        this.currentHouse = {id: null, name: "", issues: []};
+      }
+    });
   }
 
   async ngOnInit() {
     const response = await this.feedAPIService.getFeed();
     this.issues = response.payload;
-    this.currentHouseService.currentHouse.subscribe(house => this.currentHouse = house);
+   
   }
 
   newIssue() {
