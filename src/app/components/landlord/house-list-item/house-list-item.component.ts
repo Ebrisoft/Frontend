@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Inject } from "@angular/core";
+import { Component, OnInit, Input,  } from "@angular/core";
+import { Location } from "@angular/common";
 import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
 import { CurrentHouseService } from "src/app/utils/current-house-service";
 
@@ -10,12 +11,17 @@ import { CurrentHouseService } from "src/app/utils/current-house-service";
 export class HouseListItemComponent implements OnInit {
 
   @Input() house: IHouseResponse;
-  constructor(private currentHouseService: CurrentHouseService) { }
+  constructor(private currentHouseService: CurrentHouseService, private location: Location) { }
 
   ngOnInit() {}
 
   setCurrentHouse() {
     this.currentHouseService.setHouse(this.house);
+    this.routeBack();
+  }
+
+  routeBack() {
+    this.location.back();
   }
 
   clearCurrentHouse() {

@@ -13,6 +13,7 @@ import { Subscription } from "rxjs";
 })
 export class IssueFeedPage implements OnInit {
 
+  pageTitle: string;
   isFiltered: boolean;
   issues: IIssueResponse[];
   filteredIssues: IIssueResponse[];
@@ -23,25 +24,21 @@ export class IssueFeedPage implements OnInit {
     this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {
       if (currentHouse) {
         this.currentHouse = currentHouse;
-        this.filterIssues = null;
         this.filteredIssues = this.issues.filter((element, index, array) => element.house.id === this.currentHouse.id);
         this.isFiltered = true;
+        this.pageTitle = "Issues in " + this.currentHouse.name;
       } else {
         this.currentHouse = {id: null, name: "", issues: []};
         this.isFiltered = false;
+        this.pageTitle = "Issues in All Houses";
       }
     });
+    this.currentHouseService.clearHouse();
   }
 
   async ngOnInit() {
     const response = await this.feedAPIService.getFeed();
     this.issues = response.payload;
-  }
-
-  filterIssues(){
-    console.log("Filtring issues");
-   
-    
   }
 
   newIssue() {
