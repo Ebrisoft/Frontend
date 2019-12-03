@@ -1,10 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import IIssueResponse from 'src/app/models/response/landlord/issue-response.interface';
-import IHouseResponse from 'src/app/models/response/landlord/house-response.interface';
+import { Pipe, PipeTransform } from "@angular/core";
+import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
+import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
 
 @Pipe({ name: "FilterIssues" }) 
 export class FilterIssuesPipe implements PipeTransform {
-  transform(issues: IIssueResponse[], currentHouse: IHouseResponse){
+  transform(issues: IIssueResponse[], currentHouse: IHouseResponse) {
     if (currentHouse.id == null) {
       return issues;
     }
