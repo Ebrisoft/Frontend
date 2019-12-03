@@ -36,6 +36,6 @@ export class IssueFeedPage implements OnInit {
   }
 
   viewIssue(issue: IIssueResponse) {
-    this.router.navigate(["landlord/issue-detail/" + issue.id], { state: { issue: null }});
+    this.router.navigate(["landlord/issue-detail/" + issue.id], { state: { issue }});
   }
 }
