@@ -12,11 +12,13 @@ export class IssueCardComponent implements OnInit {
   private issue: IIssueResponse;
   
   private parsedDate: string;
+  private secondaryColour: string;
 
   constructor() { }
 
   ngOnInit() {
     this.parsedDate = new Date(this.issue.createdAt).toLocaleDateString();
+    this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
   }
 
 }

@@ -31,14 +31,24 @@ export class IssueFeedPage implements OnInit {
     this.currentHouseService.clearHouse();
   }
 
-  async ngOnInit() {
+  async getIssues() {
     const response = await this.feedAPIService.getFeed();
     this.issues = response.payload;
   }
 
+  doRefresh(event) {
+    setTimeout(() => {
+      this.getIssues();
+      event.target.complete();
+    }, 1000);
+  }
+
+  async ngOnInit() {
+    this.getIssues();
+  }
+
   newIssue() {
     this.router.navigate(["landlord/new-issue"]);
-    console.log("creating new issue");
   }
   
 }

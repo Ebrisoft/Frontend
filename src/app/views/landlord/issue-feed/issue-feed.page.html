@@ -1,6 +1,14 @@
 <app-page-header title="{{pageTitle}}"></app-page-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   
   <app-issue-card *ngFor="let issue of (issues | FilterIssues:currentHouse)" [issue]="issue"></app-issue-card>
 

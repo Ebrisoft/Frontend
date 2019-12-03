@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 import { IonicModule, IonicRouteStrategy, Platform } from "@ionic/angular";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
@@ -21,21 +22,21 @@ import LandlordBaseAPIService from "./services/api/landlord/landlord-base-api-se
     AppComponent,
   ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTPService,
-      useFactory: (platform: Platform) => {
+      useFactory: (platform: Platform, client: HttpClient) => {
         if (platform.is("cordova")) {
-          return new HTTPCordova();
+          return new HTTPCordova(client);
         }
         
         return new HTTPWeb();
       },
-      deps: [ Platform ]
+      deps: [ Platform, HttpClient ]
     },
     {
       provide: TenantFeedAPIService,
