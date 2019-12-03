@@ -3,6 +3,7 @@ import IUserResponse from "../common/user-response.interface";
 import { Priority } from "src/app/utils/priority.enum";
 
 export default interface IIssueResponse {
+  id: number;
   title: string;
   content: string;
   createdAt: string;
