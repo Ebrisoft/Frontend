@@ -16,7 +16,6 @@ export class HouseListItemComponent implements OnInit {
 
   setCurrentHouse() {
     this.currentHouseService.setHouse(this.house);
-    console.log("current house set to: " + this.house.name);
   }
 
   clearCurrentHouse() {
