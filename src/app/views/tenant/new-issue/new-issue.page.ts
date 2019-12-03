@@ -38,10 +38,6 @@ export class NewIssuePage implements OnInit {
     }
   }
 
-  cancelPressed() {
-    this.routeBack();
-  }
-
   routeBack() {
     this.location.back();
   }

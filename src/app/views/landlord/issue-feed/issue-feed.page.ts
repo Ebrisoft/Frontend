@@ -1,7 +1,10 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, Input } from "@angular/core";
 import LandlordFeedAPIService from "src/app/services/api/landlord/feed-api-service";
 import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 import { Router } from "@angular/router";
+import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
+import { CurrentHouseService } from "src/app/services/observables/current-house-service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-issue-feed",
@@ -10,9 +13,22 @@ import { Router } from "@angular/router";
 })
 export class IssueFeedPage implements OnInit {
 
+  pageTitle: string;
   issues: IIssueResponse[];
+  currentHouse: IHouseResponse;
+  subscription: Subscription;
 
-  constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router) {
+  constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, private currentHouseService: CurrentHouseService) {
+    this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {
+      if (currentHouse) {
+        this.currentHouse = currentHouse;
+        this.pageTitle = "Issues in " + this.currentHouse.name;
+      } else {
+        this.currentHouse = {id: null, name: "", issues: []};
+        this.pageTitle = "Issues in All Houses";
+      }
+    });
+    this.currentHouseService.clearHouse();
   }
 
   async getIssues() {
@@ -34,7 +50,7 @@ export class IssueFeedPage implements OnInit {
   newIssue() {
     this.router.navigate(["landlord/new-issue"]);
   }
-
+  
   viewIssue(issue: IIssueResponse) {
     this.router.navigate(["landlord/issue-detail/" + issue.id], { state: { issue }});
   }

@@ -18,7 +18,9 @@ import TenantBaseAPIService from "./services/api/tenant/tentant-base-api-service
 import LandlordBaseAPIService from "./services/api/landlord/landlord-base-api-service";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
