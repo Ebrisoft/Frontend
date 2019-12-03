@@ -14,9 +14,7 @@ import { Subscription } from "rxjs";
 export class IssueFeedPage implements OnInit {
 
   pageTitle: string;
-  isFiltered: boolean;
   issues: IIssueResponse[];
-  filteredIssues: IIssueResponse[];
   currentHouse: IHouseResponse;
   subscription: Subscription;
 
@@ -24,12 +22,9 @@ export class IssueFeedPage implements OnInit {
     this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {
       if (currentHouse) {
         this.currentHouse = currentHouse;
-        this.filteredIssues = this.issues.filter((element, index, array) => element.house.id === this.currentHouse.id);
-        this.isFiltered = true;
         this.pageTitle = "Issues in " + this.currentHouse.name;
       } else {
         this.currentHouse = {id: null, name: "", issues: []};
-        this.isFiltered = false;
         this.pageTitle = "Issues in All Houses";
       }
     });

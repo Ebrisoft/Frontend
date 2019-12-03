@@ -1,13 +1,8 @@
 <app-page-header title={{pageTitle}}  ></app-page-header>
 
 <ion-content>
-  <div *ngIf="!isFiltered">
-    <app-issue-card *ngFor="let issue of issues" [issue] = "issue"></app-issue-card>
-  </div>
   
-  <div *ngIf="isFiltered">
-    <app-issue-card *ngFor="let issue of filteredIssues" [issue] = "issue"></app-issue-card>
-  </div>
+  <app-issue-card *ngFor="let issue of (issues | FilterIssues:currentHouse)" [issue]="issue"></app-issue-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="newIssue()">
     <ion-fab-button>
