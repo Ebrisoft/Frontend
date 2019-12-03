@@ -1,5 +1,6 @@
 import IHouseResponse from "./house-response.interface";
 import IUserResponse from "../common/user-response.interface";
+import { Priority } from "src/app/utils/priority.enum";
 
 export default interface IIssueResponse {
   title: string;
@@ -8,4 +9,5 @@ export default interface IIssueResponse {
   isResolved: boolean;
   author: IUserResponse;
   house: IHouseResponse;
+  priority: Priority;
 }
