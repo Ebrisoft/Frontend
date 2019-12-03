@@ -1,0 +1,25 @@
+ion-content {
+  padding: 15px;
+}
+
+.issue-meta {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20pt;
+}
+
+.meta-item {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13pt;
+}
+
+.icon {
+  margin-right: 5px;
+}

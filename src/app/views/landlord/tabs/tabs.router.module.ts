@@ -24,6 +24,16 @@ const routes: Routes = [
     ]
   },
   {
+    path: "issue-detail/:id",
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("../issue-detail/issue-detail.module").then(m => m.IssueDetailModule)
+      }
+    ]
+  },
+  {
     path: "tabs",
     component: TabsPage,
     children: [

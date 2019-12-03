@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
-import { NewIssuePage } from "./new-issue.page";
+import { RouterModule } from "@angular/router";
+import { IssueDetailPage } from "./issue-detail.page";
 import TenantIssueAPIService from "src/app/services/api/tenant/issue-api-service";
 
 @NgModule({
@@ -11,12 +11,9 @@ import TenantIssueAPIService from "src/app/services/api/tenant/issue-api-service
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{path: "", component: NewIssuePage}])
+    RouterModule.forChild([{path: "", component: IssueDetailPage }])
   ],
-  providers: [ TenantIssueAPIService ],
-  declarations: [NewIssuePage]
+  providers: [TenantIssueAPIService],
+  declarations: [IssueDetailPage]
 })
-
-export class NewIssuePageModule {
-
-}
+export class IssueDetailModule { }

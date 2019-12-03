@@ -14,7 +14,6 @@ export default abstract class APIService {
 
   async post<T>(endpoint: string, payload: object): Promise<IAPIResponse<T>> {
     const response: IHTTPResponse = await this.http.post(this.baseURI + endpoint, payload, this.headers);
-
     return {
       statusCode: response.statusCode,
       errors: response.body.errors,

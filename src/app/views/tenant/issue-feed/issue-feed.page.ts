@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import TenantFeedAPIService from "src/app/services/api/tenant/feed-api-service";
 import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
 
-
 @Component({
   selector: "app-issue-feed",
   templateUrl: "issue-feed.page.html",
@@ -34,5 +33,9 @@ export class IssueFeedPage implements OnInit {
 
   newIssue() {
     this.router.navigate(["tenant/new-issue"]);
+  }
+
+  viewIssue(issue: IIssueResponse) {
+    this.router.navigate(["tenant/issue-detail/" + issue.id], { state: { issue }});
   }
 }
