@@ -36,6 +36,6 @@ export class IssueFeedPage implements OnInit {
   }
 
   viewIssue(issue: IIssueResponse) {
-    this.router.navigate(["tenant/issue-detail/" + issue.id], { state: {  }});
+    this.router.navigate(["tenant/issue-detail/" + issue.id], { state: { issue }});
   }
 }
