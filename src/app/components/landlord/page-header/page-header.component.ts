@@ -15,7 +15,7 @@ export class PageHeaderComponent implements OnInit {
 
   ngOnInit() {}
 
-  selectIssue() {
+  selectHouse() {
     this.router.navigate(["landlord/house-select"]);
     console.log("navigating to house selector");
   }
