@@ -1,10 +1,4 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      Issues
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-page-header title="{{pageTitle}}"></app-page-header>
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
@@ -15,8 +9,8 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-
-  <app-issue-card *ngFor="let issue of issues" [issue] = "issue"></app-issue-card>
+  
+  <app-issue-card *ngFor="let issue of (issues | FilterIssues:currentHouse)" [issue]="issue"></app-issue-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="newIssue()">
     <ion-fab-button>

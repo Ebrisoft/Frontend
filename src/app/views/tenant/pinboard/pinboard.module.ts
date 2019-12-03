@@ -5,9 +5,11 @@ import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { PinboardPage } from "./pinboard.page";
 import TenantPinBoardAPIService from "src/app/services/api/tenant/pinboard-api-service";
+import { PageHeaderModule } from "src/app/components/tenant/page-header/page-header.module";
 
 @NgModule({
   imports: [
+    PageHeaderModule,
     CommonModule,
     FormsModule,
     IonicModule,
