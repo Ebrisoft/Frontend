@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import TenantCreateIssueAPIService from "src/app/services/api/tenant/create-issue-api-service";
+import TenantIssueAPIService from "src/app/services/api/tenant/issue-api-service";
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { ToastController } from "@ionic/angular";
@@ -16,7 +16,7 @@ export class NewIssuePage implements OnInit {
 
   isFormValid: boolean;
 
-  constructor(private tenantCreateIssueAPIService: TenantCreateIssueAPIService, public toastController: ToastController, private router: Router, private location: Location) {
+  constructor(private tenantIssueAPIService: TenantIssueAPIService, public toastController: ToastController, private router: Router, private location: Location) {
     this.isFormValid = false;
   }
 
@@ -31,7 +31,7 @@ export class NewIssuePage implements OnInit {
 
   async checkPressed(): Promise<void> {
     if (this.isFormValid) {
-      const response = await this.tenantCreateIssueAPIService.createIssue(this.title, this.content);
+      const response = await this.tenantIssueAPIService.createIssue(this.title, this.content);
       this.routeBack();
     } else {
       this.presentToast();

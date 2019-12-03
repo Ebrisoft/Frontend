@@ -1,7 +1,9 @@
 import TenantBaseAPIService from "./tentant-base-api-service";
 import { ICreateIssueRequest } from "src/app/models/request/tenant/create-issues-request.interface";
+import { IAPIResponse } from "src/app/models/response/api-response.interface";
+import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
 
-export default class TenantCreateIssueAPIService {
+export default class TenantIssueAPIService {
   constructor(private apiService: TenantBaseAPIService ) {
 
   }
@@ -13,5 +15,9 @@ export default class TenantCreateIssueAPIService {
     };
 
     await this.apiService.post("createissue", payload);
+  }
+
+  async getIssueById(id: number): Promise<IAPIResponse<IIssueResponse>> {
+    return await this.apiService.post<IIssueResponse>("getissue", { id });
   }
 }

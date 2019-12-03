@@ -1,5 +1,42 @@
-<div *ngIf="issue">
-  <p>
-    {{ issue.id }}
-  </p>
-</div>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start" shape="round" size="large" fill="clear" (click)="backPressed()">
+      <ion-icon color="light" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Issue</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container">
+  <div *ngIf="issue">
+    
+    <ion-text color="primary">
+      <h1>{{ issue.title }}</h1>
+    </ion-text>
+
+    <ion-chip color="secondary">
+      <ion-avatar>
+        <img src="https://eu.ui-avatars.com/api/?background={{ secondaryColour }}&color=FFF&bold=true&name={{ issue.author.name.replace(' ', '+') }}">
+      </ion-avatar>
+      <ion-label>{{ issue.author.name }}</ion-label>
+    </ion-chip>
+
+    <div class="issue-meta">
+
+      <div class="meta-item">
+        <ion-icon name="time"></ion-icon>
+        <p>Date {{ issue.createdAt.substring(0,10) }}</p>
+      </div>
+
+      <div class="meta-item">
+        <ion-icon name="alert"></ion-icon>
+        <p>Prio: {{ issue.priority }}</p>
+      </div>
+
+      <div class="content">
+        <p>{{ issue.content }}</p>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
