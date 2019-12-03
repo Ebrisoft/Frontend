@@ -1,9 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { HouseSelectPage } from './house-select.page';
+import { HouseSelectPage } from "./house-select.page";
 
-describe('HouseSelectPage', () => {
+describe("HouseSelectPage", () => {
   let component: HouseSelectPage;
   let fixture: ComponentFixture<HouseSelectPage>;
 
@@ -21,7 +21,7 @@ describe('HouseSelectPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
