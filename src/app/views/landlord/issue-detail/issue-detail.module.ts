@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
 import { RouterModule } from "@angular/router";
 import { IssueDetailPage } from "./issue-detail.page";
+import LandlordIssueDetailAPIService from "src/app/services/api/landlord/issue-detail-api-service";
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { IssueDetailPage } from "./issue-detail.page";
     IonicModule,
     RouterModule.forChild([{path: "", component: IssueDetailPage }])
   ],
+  providers: [LandlordIssueDetailAPIService],
   declarations: [IssueDetailPage]
 })
 export class IssueDetailModule { }
