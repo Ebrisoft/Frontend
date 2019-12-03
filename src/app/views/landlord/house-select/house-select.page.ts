@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import LandlordHouseAPIService from "src/app/services/api/landlord/houses-api.service";
 import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
-import { CurrentHouseService } from "src/app/utils/current-house-service";
+import { CurrentHouseService } from "src/app/services/observables/current-house-service";
 
 @Component({
   selector: "app-house-select",

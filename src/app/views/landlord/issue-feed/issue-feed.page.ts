@@ -3,7 +3,7 @@ import LandlordFeedAPIService from "src/app/services/api/landlord/feed-api-servi
 import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 import { Router } from "@angular/router";
 import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
-import { CurrentHouseService } from "src/app/utils/current-house-service";
+import { CurrentHouseService } from "src/app/services/observables/current-house-service";
 import { Subscription } from "rxjs";
 
 @Component({
