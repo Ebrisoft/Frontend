@@ -13,9 +13,10 @@ import { Subscription } from "rxjs";
 })
 export class IssueFeedPage implements OnInit {
 
+  isFiltered: boolean;
   issues: IIssueResponse[];
   filteredIssues: IIssueResponse[];
-  @Input() currentHouse: IHouseResponse;
+  currentHouse: IHouseResponse;
   subscription: Subscription;
 
   constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, private currentHouseService: CurrentHouseService) {
@@ -24,8 +25,10 @@ export class IssueFeedPage implements OnInit {
         this.currentHouse = currentHouse;
         this.filterIssues = null;
         this.filteredIssues = this.issues.filter((element, index, array) => element.house.id === this.currentHouse.id);
+        this.isFiltered = true;
       } else {
         this.currentHouse = {id: null, name: "", issues: []};
+        this.isFiltered = false;
       }
     });
   }
