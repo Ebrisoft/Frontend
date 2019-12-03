@@ -1,16 +1,16 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-button slot="start" shape="round" size="medium" (click)="routeBack()">
-        <ion-icon name="close" ></ion-icon>
-      </ion-button>
-      <ion-title>Select House</ion-title>
-      <ion-button slot="end" shape="round" size="medium" (click)="addHouse()">
-        <ion-icon name="checkmark"></ion-icon>
-      </ion-button>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" shape="round" size="medium" (click)="routeBack()">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+    <ion-title>Select House</ion-title>
+    <ion-button slot="end" shape="round" size="medium" (click)="addHouse()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <ion-button  shape="round" size="medium" (click)="viewAllHouses()">All Houses</ion-button>
+  <ion-button shape="round" size="medium" (click)="viewAllHouses()">All Houses</ion-button>
   <app-house-list-item *ngFor="let house of houses" [house] = "house"></app-house-list-item>
 </ion-content>

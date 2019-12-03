@@ -28,5 +28,4 @@ export class HouseListItemComponent implements OnInit {
     this.currentHouseService.clearHouse();
     console.log("cleared House ");
   }
-
 }

@@ -14,7 +14,6 @@ const routes: Routes = [
     path: "landlord",
       loadChildren: () => import("./views/landlord/tabs/tabs.module").then(m => m.TabsPageModule)
   }
-
 ];
 
 @NgModule({
