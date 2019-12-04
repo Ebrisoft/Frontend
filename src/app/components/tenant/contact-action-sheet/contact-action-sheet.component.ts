@@ -10,9 +10,9 @@ export class ContactActionSheetComponent {
 
   constructor(private actionSheetController: ActionSheetController) { }
 
-  async presentActionSheet() {
+  async presentActionSheet(contactName: string) {
     const actionSheet = await this.actionSheetController.create({
-      header: "Contact",
+      header: contactName,
       buttons: [{
         text: "Cancel",
         role: "cancel",
@@ -27,7 +27,7 @@ export class ContactActionSheetComponent {
           console.log("Call clicked");
         }
       }, {
-        text: "Mail",
+        text: "Email",
         icon: "mail",
         handler: () => {
           console.log("Mail clicked");
