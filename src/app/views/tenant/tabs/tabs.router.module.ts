@@ -48,6 +48,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: "phonebook",
+        children: [
+          {
+            path: "",
+            loadChildren: () =>
+              import("../phonebook/phonebook.module").then(m => m.PhonebookPageModule)
+          }
+        ]
+      },
+      {
         path: "",
         redirectTo: "tabs/issue-feed",
         pathMatch: "full"
