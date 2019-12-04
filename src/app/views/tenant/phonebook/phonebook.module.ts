@@ -5,6 +5,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { PhonebookPage } from "./phonebook.page";
 import { PageHeaderModule } from "src/app/components/tenant/page-header/page-header.module";
+import { PhonebookItemComponent } from "src/app/components/tenant/phonebook-item/phonebook-item.component";
+import TenantPhonebookAPIService from "src/app/services/api/tenant/phonebook-api.service";
 
 const routes: Routes = [
   {
@@ -21,7 +23,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
+  providers:[ TenantPhonebookAPIService ],
   declarations: [
+    PhonebookItemComponent,
     PhonebookPage,
   ]
 })
