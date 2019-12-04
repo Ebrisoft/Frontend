@@ -1,22 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="login-view">
 
-<ion-content>
-  <ion-item>
-      <ion-label position="stacked"> Username</ion-label>
-      <ion-input type="email" [(ngModel)]="email"></ion-input>
+  <div class="app-name">
+    <h1>HABITAT</h1>
+  </div>
+  <div class="error">
+    <ion-note color="danger" *ngIf="loginError">{{ loginError }}</ion-note>
+  </div>
+  <ion-item lines="inset">
+    <ion-label color="dark" position="floating">Email</ion-label>
+    <ion-input disabled={{loading}} inputmode="email" clear-input="true" type="email" [(ngModel)]="email"></ion-input>
   </ion-item>
-  <ion-item>
-      <ion-label position="stacked"> Password</ion-label>
-      <ion-input type="password"[(ngModel)]="password"></ion-input>
+  <ion-item lines="inset">
+    <ion-label color="dark" position="floating">Password</ion-label>
+    <ion-input disabled={{loading}} clear-input="true" type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="loginPressed()">Login</ion-button>
-  <ion-note color="danger" *ngIf="loginError">Invald Input</ion-note>
-</ion-content>
+  <ion-button shape="round" expand="block" (click)="loginPressed()">
+      <div *ngIf="loading === false" id="button-text">
+        Continue
+      </div>
+      <div *ngIf="loading === true" id="button-spinner">
+          <ion-spinner></ion-spinner>
+      </div>
+  </ion-button>
 
+</div>
