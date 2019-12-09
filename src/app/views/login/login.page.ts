@@ -49,9 +49,11 @@ export class LoginComponent implements OnInit {
           case "landlord":
             this.router.navigate(["/landlord"]);
             break;
+          default:
+            this.loginError = "Error, role not recognised. Please contact application administrator";
         }
       } catch {
-        this.loginError = "No account exists with those credentials";
+        this.loginError = "No account exists with these credentials";
       } finally {
         this.loading = false;
       }
@@ -59,15 +61,15 @@ export class LoginComponent implements OnInit {
   }
 
   validate(): string {
-    if (this.email && this.password) {
-      if (this.email.search(LoginComponent.EMAIL_REGEX) !== -1 ) {
-        return null;
-      } else {
-        return "Invalid email";
-      }
-    } else {
+    if (!this.email || !this.password) {
       return "Please enter a username and password";
     }
+
+    if (this.email.search(LoginComponent.EMAIL_REGEX) === -1) {
+      return "Invalid email";
+    }
+
+    return null;
   }
 
   ngOnInit() {
