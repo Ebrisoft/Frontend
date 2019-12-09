@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentChecked, AfterViewInit, AfterViewChecked } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
