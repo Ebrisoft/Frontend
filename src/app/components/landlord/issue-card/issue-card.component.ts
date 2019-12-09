@@ -11,7 +11,7 @@ export class IssueCardComponent implements OnInit {
 
   @Input() issue: IIssueResponse;
   private parsedDate: string;
-  private priorityDisplay: string; 
+  private priorityDisplay: string;
   private secondaryColour: string;
 
   constructor() {}
