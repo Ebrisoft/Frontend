@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  loginError: boolean;
+  loginError: string;
+
+  loading: boolean = false;
 
   constructor(private signinAPIService: SigninAPIService, private router: Router) {
     
@@ -24,36 +26,50 @@ export class LoginComponent implements OnInit {
     this.loginError = this.validate();
     
     if (!this.loginError) {
-      const response = await this.signinAPIService.SignIn(this.email, this.password);
-      if (response.statusCode !== 200) {
-        // TODO: Panic at the disco! 
+      this.loading = true;
 
-        return;
-      } 
-      if (response.payload.roles.length !== 1) {
-        // TODO: Panic at the disco! 
+      try {
+        const response = await this.signinAPIService.SignIn(this.email, this.password);
 
-        return;
-      } 
-     
-      switch (response.payload.roles[0]) {
-        case "tenant":
-          this.router.navigate(["/tenant"]);
-          break;
-        case "landlord":
-          this.router.navigate(["/landlord"]);
-          break;
+        if (response.statusCode !== 200) {
+          this.loginError = "Server error.";
+          return;
+        } 
+
+        if (response.payload.roles.length !== 1) {
+          this.loginError = "Error, please contact application administrator.";
+          return;
+        }
+
+        this.loginError = null;
+        switch (response.payload.roles[0]) {
+          case "tenant":
+            this.router.navigate(["/tenant"]);
+            break;
+          case "landlord":
+            this.router.navigate(["/landlord"]);
+            break;
+          default:
+            this.loginError = "Error, role not recognised. Please contact application administrator";
+        }
+      } catch {
+        this.loginError = "No account exists with these credentials";
+      } finally {
+        this.loading = false;
       }
     }
   }
 
-  validate(): boolean {
-    if (this.email && this.password) {
-      if (this.email.search(LoginComponent.EMAIL_REGEX) !== -1 ) {
-        return false;
-      }
+  validate(): string {
+    if (!this.email || !this.password) {
+      return "Please enter a username and password";
     }
-    return true;
+
+    if (this.email.search(LoginComponent.EMAIL_REGEX) === -1) {
+      return "Invalid email";
+    }
+
+    return null;
   }
 
   ngOnInit() {
