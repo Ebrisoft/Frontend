@@ -13,6 +13,7 @@ import { Priority } from "src/app/utils/priority.enum";
 export class IssueDetailPage implements OnInit {
 
   private issue: IIssueResponse;
+  private displayStatus: string;
   private parsedDate: string;
   private secondaryColour: string;
   private priorityDisplay: string;
@@ -28,6 +29,7 @@ export class IssueDetailPage implements OnInit {
           this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
           this.priorityDisplay = Priority[this.issue.priority];
           this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
+          this.displayStatus = this.issue.isResolved ? "CLOSED" : "OPEN";
         });
       });
     }
@@ -38,6 +40,8 @@ export class IssueDetailPage implements OnInit {
       this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
       this.priorityDisplay = Priority[this.issue.priority];
       this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
+      this.displayStatus = this.issue.isResolved ? "CLOSED" : "OPEN";
+
     }
   }
 

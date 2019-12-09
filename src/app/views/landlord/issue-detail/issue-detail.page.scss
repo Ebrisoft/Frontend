@@ -3,6 +3,10 @@ h1 {
   margin: 10px 0;
 }
 
+ion-title {
+  text-align: center;
+}
+
 .issue-container {
   padding: 0 15px 15px 15px;
 }
@@ -17,7 +21,7 @@ ion-text p {
   color: grey;
 }
 
-ion-icon {
+.container ion-icon {
   margin-right: 5px;
   font-size: 26px;
   color: var(--ion-color-secondary);
