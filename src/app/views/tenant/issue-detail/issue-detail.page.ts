@@ -12,6 +12,8 @@ import TenantIssueAPIService from "../../../services/api/tenant/issue-api-servic
 export class IssueDetailPage implements OnInit {
 
   private issue: IIssueResponse;
+  private parsedDate: string;
+  private secondaryColour: string;
 
   constructor(private router: Router, private activeRoute: ActivatedRoute, private tenantIssueAPIService: TenantIssueAPIService, private location: Location) { 
     const routeState = this.router.getCurrentNavigation().extras.state;
@@ -20,12 +22,20 @@ export class IssueDetailPage implements OnInit {
       this.issue = routeState.issue as IIssueResponse;
     } else {
       this.activeRoute.params.subscribe((urlParameters) => {
-        this.setIssueById(Number(urlParameters.id));
+        this.setIssueById(Number(urlParameters.id)).then(() => {
+          this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
+          this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
+        });
       });
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.issue) {
+      this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
+      this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
+    }
+  }
 
   async setIssueById(id: number) {
     const fetchIssue = await this.tenantIssueAPIService.getIssueById(id);

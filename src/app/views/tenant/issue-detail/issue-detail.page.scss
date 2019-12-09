@@ -1,0 +1,58 @@
+
+h1 {
+  margin: 10px 0;
+}
+
+.issue-container {
+  padding: 0 15px 15px 15px;
+}
+
+ion-content {
+  --padding-top: 0;
+}
+
+ion-text p {
+  padding: 0;
+  margin: 2px 0;
+  color: grey;
+}
+
+ion-icon {
+  margin-right: 5px;
+  font-size: 26px;
+  color: var(--ion-color-secondary);
+}
+
+ion-chip {
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0);
+  color:grey;
+  font-size: 17px;
+}
+
+.issue-meta {
+  color:grey;
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-item {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14pt;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.content {
+  font-size: 20px;
+  color: #434343;
+}
