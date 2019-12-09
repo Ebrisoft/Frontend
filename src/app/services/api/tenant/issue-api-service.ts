@@ -20,4 +20,8 @@ export default class TenantIssueAPIService {
   async getIssueById(id: number): Promise<IAPIResponse<IIssueResponse>> {
     return await this.apiService.post<IIssueResponse>("getissue", { id });
   }
+
+  async closeIssue(id: number): Promise<void> {
+    await this.apiService.post<IIssueResponse>("archive", { id });
+  }
 }

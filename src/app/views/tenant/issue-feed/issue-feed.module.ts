@@ -6,6 +6,7 @@ import { IssueFeedPage } from "./issue-feed.page";
 import TenantFeedAPIService from "src/app/services/api/tenant/feed-api-service";
 import { IssueCardComponent } from "src/app/components/tenant/issue-card/issue-card.component";
 import { PageHeaderModule } from "src/app/components/tenant/page-header/page-header.module";
+import { FilterIssuesByStatus } from "../../../services/pipes/filter-issues.pipe";
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { PageHeaderModule } from "src/app/components/tenant/page-header/page-hea
   providers: [ TenantFeedAPIService ],
   declarations: [
     IssueFeedPage,
-    IssueCardComponent
+    IssueCardComponent,
+    FilterIssuesByStatus
   ]
 })
 export class IssueFeedModule {}

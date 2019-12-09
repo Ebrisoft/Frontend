@@ -11,6 +11,7 @@ import IIssueResponse from "src/app/models/response/tenant/issue-response.interf
 export class IssueFeedPage implements OnInit {
 
   issues: IIssueResponse[];
+  viewingResolved: boolean = false;
 
   constructor(@Inject(TenantFeedAPIService) private feedService: TenantFeedAPIService, private router: Router) {
   }
@@ -31,6 +32,14 @@ export class IssueFeedPage implements OnInit {
     this.getIssues();
   }
 
+  showOpen() {
+    this.viewingResolved = false;
+  }
+  
+  showClosed() {
+    this.viewingResolved = true;
+  }
+  
   newIssue() {
     this.router.navigate(["tenant/new-issue"]);
   }

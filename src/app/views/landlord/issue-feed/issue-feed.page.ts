@@ -17,6 +17,7 @@ export class IssueFeedPage implements OnInit {
   issues: IIssueResponse[];
   currentHouse: IHouseResponse;
   subscription: Subscription;
+  viewingResolved: boolean = false;
 
   constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, private currentHouseService: CurrentHouseService) {
     this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {
@@ -45,6 +46,14 @@ export class IssueFeedPage implements OnInit {
 
   async ngOnInit() {
     this.getIssues();
+  }
+
+  showOpen() {
+    this.viewingResolved = false;
+  }
+  
+  showClosed() {
+    this.viewingResolved = true;
   }
 
   newIssue() {

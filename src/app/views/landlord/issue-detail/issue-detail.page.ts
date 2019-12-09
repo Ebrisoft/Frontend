@@ -25,8 +25,6 @@ export class IssueDetailPage implements OnInit {
               private location: Location, 
               private alertController: AlertController) { 
 
-    const routeState = this.router.getCurrentNavigation().extras.state;
-
       this.activeRoute.params.subscribe((urlParameters) => {
         this.setIssueById(Number(urlParameters.id)).then(() => {
           this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
