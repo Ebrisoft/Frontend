@@ -15,10 +15,20 @@ ion-content {
   --padding-top: 0;
 }
 
+ion-toolbar ion-text {
+  color: lightgrey;
+  font-size: 14px;
+  margin: 0 25px 0 0;
+}
+
 ion-text p {
   padding: 0;
   margin: 2px 0;
   color: grey;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .container ion-icon {
