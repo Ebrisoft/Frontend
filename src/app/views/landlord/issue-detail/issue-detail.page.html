@@ -4,6 +4,15 @@
       <ion-icon color="light" name="arrow-back"></ion-icon>
     </ion-button>
     <ion-title>Issue</ion-title>
+    
+    <div slot="end" class="close-button-container">
+      <ion-button *ngIf="issue && !issue.isResolved" shape="round" size="large" fill="clear" (click)="confirmMarkAsResolved()">
+        <ion-icon color="light" name="checkmark-circle"></ion-icon>
+      </ion-button>
+      <ion-text slot="end" *ngIf="issue && issue.isResolved">
+        RESOLVED
+      </ion-text>
+    </div>
   </ion-toolbar>
 </ion-header>
 

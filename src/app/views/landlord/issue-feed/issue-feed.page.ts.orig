@@ -45,14 +45,14 @@ export class IssueFeedPage implements OnInit {
     this.getIssues();
   }
 
+<<<<<<< HEAD
   showOpen() {
     this.viewingResolved = false;
   }
   
   showClosed() {
     this.viewingResolved = true;
-  }
-  
+=======
   setPageTitle(currentHouse) {
     if (currentHouse) {
       this.currentHouse = currentHouse;
@@ -61,6 +61,7 @@ export class IssueFeedPage implements OnInit {
       this.currentHouse = null;
       this.pageTitle = "Issues in All Houses";
     }
+>>>>>>> develop
   }
 
   newIssue() {

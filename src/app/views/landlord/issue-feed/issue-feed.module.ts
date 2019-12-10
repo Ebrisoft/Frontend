@@ -6,10 +6,12 @@ import { IssueFeedPage } from "./issue-feed.page";
 import LandlordFeedAPIService from "src/app/services/api/landlord/feed-api-service";
 import { IssueCardComponent } from "src/app/components/landlord/issue-card/issue-card.component";
 import { PageHeaderModule } from "src/app/components/landlord/page-header/page-header.module";
-import { FilterIssuesPipe } from "src/app/services/pipes/filter-issues.pipe";
+import { CurrentHouseService } from "src/app/services/observables/current-house-service";
+import { IssueFilters } from "../../../services/pipes/issues/filter-issues.module";
 
 @NgModule({
   imports: [
+    IssueFilters,
     PageHeaderModule,
     IonicModule,
     CommonModule,
@@ -19,7 +21,6 @@ import { FilterIssuesPipe } from "src/app/services/pipes/filter-issues.pipe";
     LandlordFeedAPIService
   ],
   declarations: [
-    FilterIssuesPipe,
     IssueFeedPage,
     IssueCardComponent
   ]
