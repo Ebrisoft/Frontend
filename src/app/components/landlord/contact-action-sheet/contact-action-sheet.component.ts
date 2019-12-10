@@ -1,7 +1,7 @@
 import { Component} from "@angular/core";
-import { ActionSheetController, ToastController } from "@ionic/angular";
-import { CallNumber } from "@ionic-native/call-number/ngx";
-import { EmailComposer } from "@ionic-native/email-composer/ngx";
+import { ActionSheetController, ToastController} from "@ionic/angular";
+import { CallNumber} from "@ionic-native/call-number/ngx";
+import { EmailComposer} from "@ionic-native/email-composer/ngx";
 
 @Component({
   selector: "app-contact-action-sheet",

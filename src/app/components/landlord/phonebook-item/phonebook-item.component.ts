@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import IPhonebookResponse from "src/app/models/response/landlord/phonebook-response.interface";
+import IPhonebookResponse from "src/app/models/response/tenant/phonebook-response.interface";
 import { ContactActionSheetComponent } from "../contact-action-sheet/contact-action-sheet.component";
 
 @Component({

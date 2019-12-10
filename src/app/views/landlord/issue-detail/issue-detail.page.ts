@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
-import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
+import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 import LandlordIssueAPIService from "../../../services/api/landlord/issue-api-service";
 
 @Component({
