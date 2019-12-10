@@ -18,7 +18,7 @@ export class PhonebookItemComponent implements OnInit {
   }
 
   clickContact() {
-    this.actionSheet.presentActionSheet(this.contact.name);
+    this.actionSheet.presentActionSheet(this.contact.name, this.contact.phoneNumber, this.contact.email);
   }
 
 }

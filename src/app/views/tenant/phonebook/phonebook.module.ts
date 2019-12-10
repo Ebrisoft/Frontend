@@ -9,6 +9,7 @@ import { PhonebookItemComponent } from "src/app/components/tenant/phonebook-item
 import TenantPhonebookAPIService from "src/app/services/api/tenant/phonebook-api.service";
 import { ContactActionSheetComponent } from "src/app/components/tenant/contact-action-sheet/contact-action-sheet.component";
 import { CallNumber } from "@ionic-native/call-number/ngx";
+import { EmailComposer } from "@ionic-native/email-composer/ngx";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { CallNumber } from "@ionic-native/call-number/ngx";
   providers: [ 
     TenantPhonebookAPIService,
     ContactActionSheetComponent,
-    CallNumber
+    CallNumber,
+    EmailComposer,
   ],
   declarations: [
     PhonebookItemComponent,
