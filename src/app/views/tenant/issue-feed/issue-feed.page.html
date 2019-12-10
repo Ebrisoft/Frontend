@@ -6,7 +6,7 @@
         <ion-label>Open</ion-label>
       </ion-tab-button>
       <ion-tab-button class="tab-buton" [class.is-active]="viewingResolved" (click)="showClosed()">
-        <ion-label>Closed</ion-label>
+        <ion-label>Resolved</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
@@ -21,7 +21,7 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-  
+
   <div *ngIf="issues" class="issues-list">
     <app-issue-card *ngFor="let issue of (issues | FilterIssuesByStatus:viewingResolved)" [issue] = "issue" (click)="viewIssue(issue)"></app-issue-card>
   </div>
