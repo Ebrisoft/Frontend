@@ -44,10 +44,12 @@ export class LoginComponent implements OnInit {
         this.loginError = null;
         switch (response.payload.roles[0]) {
           case "tenant":
-            this.router.navigate(["/tenant"]);
+              localStorage.setItem("userEmail", this.email);
+              this.router.navigate(["/tenant"]);
             break;
-          case "landlord":
-            this.router.navigate(["/landlord"]);
+            case "landlord":
+              localStorage.setItem("userEmail", this.email);
+              this.router.navigate(["/landlord"]);
             break;
           default:
             this.loginError = "Error, role not recognised. Please contact application administrator";

@@ -55,19 +55,20 @@ export class IssueDetailPage implements OnInit {
     const detailView = this;
 
     const alert = await this.alertController.create({
-      header: "Close Issue",
-      message: "Are you sure you want to close this issue?",
+      header: "Resolve Issue",
+      message: "Are you sure you want to mark this issue as resolved?",
       buttons: [
         {
           text: "Cancel",
           cssClass: "secondary",
           handler: () => { }
         }, {
-          text: "Close Issue",
+          text: "Mark Resolved",
           cssClass: "bold",
           handler: async () => {
-            await detailView.landlordIssueAPIService.closeIssue(detailView.issue.id);
-            detailView.setIssueById(detailView.issue.id);
+            await detailView.landlordIssueAPIService.closeIssue(detailView.issue.id).then(() => {
+              detailView.setIssueById(detailView.issue.id);
+            });
           }
         }
       ]

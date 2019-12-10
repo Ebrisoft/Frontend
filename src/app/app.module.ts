@@ -19,7 +19,7 @@ import LandlordBaseAPIService from "./services/api/landlord/landlord-base-api-se
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],

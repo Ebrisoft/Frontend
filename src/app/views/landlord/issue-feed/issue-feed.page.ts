@@ -13,11 +13,13 @@ import { Subscription } from "rxjs";
 })
 export class IssueFeedPage implements OnInit {
 
-  pageTitle: string;
-  issues: IIssueResponse[];
-  currentHouse: IHouseResponse;
-  subscription: Subscription;
-  viewingResolved: boolean = false;
+  private pageTitle: string;
+  private issues: IIssueResponse[];
+  private currentHouse: IHouseResponse;
+  private subscription: Subscription;
+  private viewingResolved: boolean = false;
+  private loggedInUserEmail: string;
+  private isOwner: boolean = false;
 
   constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, private currentHouseService: CurrentHouseService) {
     this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {

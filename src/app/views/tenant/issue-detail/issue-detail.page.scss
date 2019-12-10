@@ -7,6 +7,20 @@ ion-title {
   text-align: center;
 }
 
+.close-button-container {
+  width: 72px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.close-button-container ion-text {
+  width: 80px;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
 .issue-container {
   padding: 0 15px 15px 15px;
 }
@@ -18,7 +32,6 @@ ion-content {
 ion-toolbar ion-text {
   color: lightgrey;
   font-size: 14px;
-  margin: 0 25px 0 0;
 }
 
 ion-text p {

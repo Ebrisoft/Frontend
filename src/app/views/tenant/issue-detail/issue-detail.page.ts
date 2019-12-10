@@ -15,6 +15,8 @@ export class IssueDetailPage implements OnInit {
   private issue: IIssueResponse;
   private parsedDate: string;
   private secondaryColour: string;
+  private loggedInUserEmail: string;
+  private isOwner: boolean = false;
 
   constructor(private router: Router,
     private activeRoute: ActivatedRoute,
@@ -26,14 +28,17 @@ export class IssueDetailPage implements OnInit {
       this.setIssueById(Number(urlParameters.id)).then(() => {
         this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
         this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
+        this.isOwner = this.loggedInUserEmail === this.issue.author.email;
       });
     });
   }
 
   ngOnInit() {
+    this.loggedInUserEmail = localStorage.getItem("userEmail");
     if (this.issue) {
       this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
       this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
+      this.isOwner = this.loggedInUserEmail === this.issue.author.email;
     }
   }
 
@@ -48,15 +53,15 @@ export class IssueDetailPage implements OnInit {
     const detailView = this;
 
     const alert = await this.alertController.create({
-      header: "Close Issue",
-      message: "Are you sure you want to close this issue?",
+      header: "Resolve Issue",
+      message: "Are you sure you want to mark this issue as resolved?",
       buttons: [
         {
           text: "Cancel",
           cssClass: "secondary",
           handler: () => { }
         }, {
-          text: "Close Issue",
+          text: "Mark Resolved",
           cssClass: "bold",
           handler: async () => {
             await detailView.tenantIssueAPIService.closeIssue(detailView.issue.id);

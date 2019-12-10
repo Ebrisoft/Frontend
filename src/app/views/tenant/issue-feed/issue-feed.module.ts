@@ -6,10 +6,11 @@ import { IssueFeedPage } from "./issue-feed.page";
 import TenantFeedAPIService from "src/app/services/api/tenant/feed-api-service";
 import { IssueCardComponent } from "src/app/components/tenant/issue-card/issue-card.component";
 import { PageHeaderModule } from "src/app/components/tenant/page-header/page-header.module";
-import { FilterIssuesByStatus } from "../../../services/pipes/filter-issues.pipe";
+import { IssueFilters } from "../../../services/pipes/issues/filter-issues.module";
 
 @NgModule({
   imports: [
+    IssueFilters,
     PageHeaderModule,
     IonicModule,
     CommonModule,
@@ -18,8 +19,7 @@ import { FilterIssuesByStatus } from "../../../services/pipes/filter-issues.pipe
   providers: [ TenantFeedAPIService ],
   declarations: [
     IssueFeedPage,
-    IssueCardComponent,
-    FilterIssuesByStatus
+    IssueCardComponent
   ]
 })
 export class IssueFeedModule {}

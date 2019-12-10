@@ -16,8 +16,8 @@ export default abstract class APIService {
     const response: IHTTPResponse = await this.http.post(this.baseURI + endpoint, payload, this.headers);
     return {
       statusCode: response.statusCode,
-      errors: response.body.errors,
-      payload: response.body.payload
+      errors: response.body ? response.body.errors : [],
+      payload: response.body ? response.body.payload : {}
     };
   }
 }

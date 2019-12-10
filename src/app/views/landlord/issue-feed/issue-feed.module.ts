@@ -7,10 +7,11 @@ import LandlordFeedAPIService from "src/app/services/api/landlord/feed-api-servi
 import { IssueCardComponent } from "src/app/components/landlord/issue-card/issue-card.component";
 import { PageHeaderModule } from "src/app/components/landlord/page-header/page-header.module";
 import { CurrentHouseService } from "src/app/services/observables/current-house-service";
-import { FilterIssuesByHouse, FilterIssuesByStatus } from "src/app/services/pipes/filter-issues.pipe";
+import { IssueFilters } from "../../../services/pipes/issues/filter-issues.module";
 
 @NgModule({
   imports: [
+    IssueFilters,
     PageHeaderModule,
     IonicModule,
     CommonModule,
@@ -20,8 +21,6 @@ import { FilterIssuesByHouse, FilterIssuesByStatus } from "src/app/services/pipe
     LandlordFeedAPIService
   ],
   declarations: [
-    FilterIssuesByHouse,
-    FilterIssuesByStatus,
     IssueFeedPage,
     IssueCardComponent
   ]
