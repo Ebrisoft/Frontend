@@ -1,9 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ContactActionSheetComponent } from './contact-action-sheet.component';
+import { ContactActionSheetComponent } from "./contact-action-sheet.component";
 
-describe('ContactActionSheetComponent', () => {
+describe("ContactActionSheetComponent", () => {
   let component: ContactActionSheetComponent;
   let fixture: ComponentFixture<ContactActionSheetComponent>;
 
@@ -21,7 +21,7 @@ describe('ContactActionSheetComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import IHouseResponse from "../../models/response/landlord/house-response.interface";
 
@@ -22,7 +22,7 @@ export class CurrentHouseService {
       return this.subject.asObservable();
   }
 
-  getCurrentHouse(){
+  getCurrentHouse() {
     return this.currentHouse;
   }
 }

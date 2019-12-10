@@ -1,6 +1,6 @@
 export default interface IPhonebookResponse {
   name: string;
-  houseId: number,
+  houseId: number;
   email: string;
   phoneNumber: string;
   type: string;

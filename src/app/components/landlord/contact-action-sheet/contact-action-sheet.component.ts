@@ -10,16 +10,7 @@ import { EmailComposer} from "@ionic-native/email-composer/ngx";
 })
 export class ContactActionSheetComponent {
 
-  constructor(private actionSheetController: ActionSheetController, private toastController: ToastController, private callNumber: CallNumber, private emailComposer: EmailComposer) {}
-
-  async presentToast(warning) {
-    const toast = await this.toastController.create({
-      message: warning,
-      color: "danger",
-      duration: 3000
-    });
-    toast.present();
-  }
+  constructor(private actionSheetController: ActionSheetController, private callNumber: CallNumber, private emailComposer: EmailComposer) {}
 
   async presentActionSheet(contactName: string, contactNumber: string, contactEmail: string) {
     const emailButton = {
