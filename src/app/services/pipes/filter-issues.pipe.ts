@@ -5,11 +5,9 @@ import IHouseResponseTenant from "src/app/models/response/landlord/house-respons
 @Pipe({ name: "FilterIssues" }) 
 export class FilterIssuesPipe implements PipeTransform {
   transform(issues: IIssueResponse[], currentHouse: IHouseResponseTenant) {
-    if (currentHouse.id == null) {
+    if (currentHouse == null) {
       return issues;
     }
     return issues.filter((element, index, array) => element.house.id === currentHouse.id);
   }
 }
-
-

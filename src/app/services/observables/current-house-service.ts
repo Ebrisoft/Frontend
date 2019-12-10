@@ -1,21 +1,28 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import IHouseResponse from "../../models/response/landlord/house-response.interface";
 
 @Injectable({ providedIn: "root" })
 export class CurrentHouseService {
 
-  private subject = new Subject<any>();
+  private subject = new Subject<IHouseResponse>();
+  private currentHouse: IHouseResponse;
 
   setHouse(house: IHouseResponse) {
-      this.subject.next(house);
+    this.currentHouse = house;
+    this.subject.next(house);
   }
 
   clearHouse() {
-      this.subject.next();
+    this.currentHouse = null;
+    this.subject.next();
   }
 
-  getCurrentHouse(): Observable<any> {
+  getSubject(): Observable<IHouseResponse> {
       return this.subject.asObservable();
+  }
+
+  getCurrentHouse(){
+    return this.currentHouse;
   }
 }

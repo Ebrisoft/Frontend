@@ -1,4 +1,4 @@
-<app-page-header title="Phonebook"></app-page-header>
+<app-page-header title={{pageTitle}}></app-page-header>
 
 <ion-content>
   <app-phonebook-item *ngFor="let contact of (contacts | FilterContacts:currentHouse)" [contact]="contact"></app-phonebook-item>

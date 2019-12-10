@@ -13,21 +13,17 @@ import { Subscription } from "rxjs";
 export class PhonebookPage implements OnInit {
 
   pageTitle: string;
-  contacts: IPhonebookResponse[];
+  contacts: IPhonebookResponse[] = [];
   currentHouse: IHouseResponse;
   subscription: Subscription;
 
   constructor(@Inject(LandlordPhonebookAPIService) private phonebookService: LandlordPhonebookAPIService, private currentHouseService: CurrentHouseService) {
-    this.subscription = this.currentHouseService.getCurrentHouse().subscribe(currentHouse => {
-      if (currentHouse) {
-        this.currentHouse = currentHouse;
-        this.pageTitle = "Contacts in " + this.currentHouse.name;
-      } else {
-        this.currentHouse = {id: null, name: "", issues: []};
-        this.pageTitle = "Contacts in All Houses";
-      }
+    this.currentHouse = this.currentHouseService.getCurrentHouse();
+    this.setPageTitle(this.currentHouse);
+    this.subscription = this.currentHouseService.getSubject().subscribe(currentHouse => {
+      this.setPageTitle(currentHouse);
     });
-    this.currentHouseService.clearHouse();
+    
   }
 
   async getContacts() {
@@ -37,6 +33,16 @@ export class PhonebookPage implements OnInit {
 
   ngOnInit() {
     this.getContacts();
+  }
+
+  setPageTitle(currentHouse) {
+    if (currentHouse) {
+      this.currentHouse = currentHouse;
+      this.pageTitle = "Contacts in " + this.currentHouse.name;
+    } else {
+      this.currentHouse = null;
+      this.pageTitle = "Contacts in All Houses";
+    }
   }
 
 }
