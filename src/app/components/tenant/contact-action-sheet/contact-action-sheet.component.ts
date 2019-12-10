@@ -2,6 +2,7 @@ import { Component} from "@angular/core";
 import { ActionSheetController, ToastController } from "@ionic/angular";
 import { CallNumber } from "@ionic-native/call-number/ngx";
 import { EmailComposer } from "@ionic-native/email-composer/ngx";
+import { ActionSheetButton } from '@ionic/core';
 
 @Component({
   selector: "app-contact-action-sheet",
@@ -13,46 +14,41 @@ export class ContactActionSheetComponent {
   constructor(private actionSheetController: ActionSheetController, private callNumber: CallNumber, private emailComposer: EmailComposer) {}
 
   async presentActionSheet(contactName: string, contactNumber: string, contactEmail: string) {
-    const emailButton = {
-      text: "Email",
-      icon: "mail",
-      handler: () => {
-        console.log("Mail clicked");
-        this.email(contactEmail);
-      }
-    };
 
-    const phoneButton = {
-      text: "Call",
-      icon: "call",
+    const contactButtons: ActionSheetButton[] = [{
+      text: "Cancel",
+      role: "cancel",
+      icon: "close",
       handler: () => {
-        console.log("Call clicked");
-        this.call(contactNumber);
+        console.log("Cancel clicked");
       }
-    };
-
-    const contactButtons = [];
+    }];
 
     if (contactNumber) {
-      contactButtons.push(phoneButton);
+      contactButtons.push({
+        text: "Call",
+        icon: "call",
+        handler: () => {
+          console.log("Call clicked");
+          this.call(contactNumber);
+        }
+      });
     }
     
     if (contactEmail) {
-      contactButtons.push(emailButton);
+      contactButtons.push({
+        text: "Email",
+        icon: "mail",
+        handler: () => {
+          console.log("Mail clicked");
+          this.email(contactEmail);
+        }
+      });
     }
     
     const actionSheet = await this.actionSheetController.create({
       header: contactName,
-      buttons: [{
-        text: "Cancel",
-        role: "cancel",
-        icon: "close",
-        handler: () => {
-          console.log("Cancel clicked");
-        }
-      },
-        ...contactButtons
-      ]
+      buttons: contactButtons
     });
 
     await actionSheet.present();
