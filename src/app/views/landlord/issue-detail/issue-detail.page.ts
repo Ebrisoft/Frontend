@@ -58,7 +58,7 @@ export class IssueDetailPage implements OnInit {
           text: "Mark Resolved",
           cssClass: "bold",
           handler: async () => {
-            await detailView.landlordIssueAPIService.closeIssue(detailView.issue.id).then(() => {
+            detailView.landlordIssueAPIService.closeIssue(detailView.issue.id).then(() => {
               detailView.setIssueById(detailView.issue.id);
             });
           }
