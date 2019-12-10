@@ -12,13 +12,11 @@
   color: var(--ion-color-primary);
 }
 
-#top-nav-buttons 
-ion-tab-bar {
+#top-nav-buttons ion-tab-bar {
   border-bottom: none;
 }
 
-#top-nav-buttons 
-ion-tab-bar ion-tab-button {
+#top-nav-buttons ion-tab-bar ion-tab-button {
   box-sizing: border-box;
   max-width: none;
 }
