@@ -35,11 +35,6 @@ export class IssueDetailPage implements OnInit {
 
   ngOnInit() {
     this.loggedInUserEmail = localStorage.getItem("userEmail");
-    if (this.issue) {
-      this.parsedDate = new Date(this.issue.createdAt).toLocaleString();
-      this.secondaryColour = getComputedStyle(document.body).getPropertyValue("--ion-color-secondary").trim().substring(1);
-      this.isOwner = this.loggedInUserEmail === this.issue.author.email;
-    }
   }
 
   async setIssueById(id: number) {
