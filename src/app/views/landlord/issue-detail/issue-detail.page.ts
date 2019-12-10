@@ -51,7 +51,7 @@ export class IssueDetailPage implements OnInit {
     }
   }
 
-  async presentAlertConfirm() {
+  async confirmMarkAsResolved() {
     const detailView = this;
 
     const alert = await this.alertController.create({

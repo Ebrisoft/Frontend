@@ -26,7 +26,7 @@
   </div>
 
   <div *ngIf="!issues">
-    <ion-text>No issues to show</ion-text>
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
   </div>
 
   <ion-fab *ngIf="!viewingResolved" vertical="bottom" horizontal="end" slot="fixed" (click)="newIssue()">
