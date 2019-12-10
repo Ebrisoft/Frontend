@@ -3,11 +3,17 @@
     <ion-button slot="start" shape="round" size="large" fill="clear" (click)="routeBack()">
       <ion-icon name="close"></ion-icon>
     </ion-button>
-    <ion-title>Select House</ion-title>
+    <ion-title>Filter Views By House</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button shape="round" size="medium" (click)="viewAllHouses()">All Houses</ion-button>
-  <app-house-list-item *ngFor="let house of houses" [house] = "house"></app-house-list-item>
+    <ion-list>
+        <ion-radio-group>
+          <ion-item>
+            <ion-label (click)="viewAllHouses()">All Houses</ion-label>
+          </ion-item>
+          <app-house-list-item *ngFor="let house of houses" [house]="house"></app-house-list-item>
+        </ion-radio-group>
+      </ion-list>
 </ion-content>
