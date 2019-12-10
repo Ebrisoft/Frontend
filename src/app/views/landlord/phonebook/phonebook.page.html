@@ -1,5 +1,5 @@
 <app-page-header title="Phonebook"></app-page-header>
 
 <ion-content>
-  <app-phonebook-item *ngFor="let contact of contacts" [contact]="contact"></app-phonebook-item>
+  <app-phonebook-item *ngFor="let contact of (contacts | FilterContacts:currentHouse)" [contact]="contact"></app-phonebook-item>
 </ion-content>

@@ -6,7 +6,6 @@ import { IssueFeedPage } from "./issue-feed.page";
 import LandlordFeedAPIService from "src/app/services/api/landlord/feed-api-service";
 import { IssueCardComponent } from "src/app/components/landlord/issue-card/issue-card.component";
 import { PageHeaderModule } from "src/app/components/landlord/page-header/page-header.module";
-import { CurrentHouseService } from "src/app/services/observables/current-house-service";
 import { FilterIssuesPipe } from "src/app/services/pipes/filter-issues.pipe";
 
 @NgModule({
