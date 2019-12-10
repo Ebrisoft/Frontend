@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ActionSheetController } from "@ionic/angular";
+import { CallNumber } from "@ionic-native/call-number/ngx";
 
 @Component({
   selector: "app-contact-action-sheet",
@@ -8,7 +9,7 @@ import { ActionSheetController } from "@ionic/angular";
 })
 export class ContactActionSheetComponent {
 
-  constructor(private actionSheetController: ActionSheetController) { }
+  constructor(private actionSheetController: ActionSheetController, private callNumber: CallNumber) { }
 
   async presentActionSheet(contactName: string) {
     const actionSheet = await this.actionSheetController.create({
@@ -25,6 +26,7 @@ export class ContactActionSheetComponent {
         icon: "call",
         handler: () => {
           console.log("Call clicked");
+          this.call();
         }
       }, {
         text: "Email",
@@ -35,5 +37,11 @@ export class ContactActionSheetComponent {
       }]
     });
     await actionSheet.present();
+  }
+
+  call() {
+    this.callNumber.callNumber("07538955566", true)
+  .then(res => console.log('Launched dialer!', res))
+  .catch(err => console.log('Error launching dialer', err));
   }
 }

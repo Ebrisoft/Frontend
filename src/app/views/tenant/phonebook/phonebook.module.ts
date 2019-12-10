@@ -8,6 +8,7 @@ import { PageHeaderModule } from "src/app/components/tenant/page-header/page-hea
 import { PhonebookItemComponent } from "src/app/components/tenant/phonebook-item/phonebook-item.component";
 import TenantPhonebookAPIService from "src/app/services/api/tenant/phonebook-api.service";
 import { ContactActionSheetComponent } from "src/app/components/tenant/contact-action-sheet/contact-action-sheet.component";
+import { CallNumber } from "@ionic-native/call-number/ngx";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ContactActionSheetComponent } from "src/app/components/tenant/contact-a
   ],
   providers: [ 
     TenantPhonebookAPIService,
-    ContactActionSheetComponent
+    ContactActionSheetComponent,
+    CallNumber
   ],
   declarations: [
     PhonebookItemComponent,
