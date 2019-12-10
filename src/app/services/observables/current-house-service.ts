@@ -5,17 +5,24 @@ import IHouseResponse from "../../models/response/landlord/house-response.interf
 @Injectable({ providedIn: "root" })
 export class CurrentHouseService {
 
-  private subject = new Subject<any>();
+  private subject = new Subject<IHouseResponse>();
+  private currentHouse: IHouseResponse;
 
   setHouse(house: IHouseResponse) {
-      this.subject.next(house);
+    this.currentHouse = house;
+    this.subject.next(house);
   }
 
   clearHouse() {
-      this.subject.next();
+    this.currentHouse = null;
+    this.subject.next();
   }
 
-  getCurrentHouse(): Observable<any> {
+  getSubject(): Observable<IHouseResponse> {
       return this.subject.asObservable();
+  }
+
+  getCurrentHouse() {
+    return this.currentHouse;
   }
 }
