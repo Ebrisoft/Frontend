@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { Router } from "@angular/router";
 import TenantFeedAPIService from "src/app/services/api/tenant/feed-api-service";
 import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-issue-feed",
@@ -13,7 +14,12 @@ export class IssueFeedPage implements OnInit {
   issues: IIssueResponse[];
   viewingResolved: boolean = false;
 
-  constructor(@Inject(TenantFeedAPIService) private feedService: TenantFeedAPIService, private router: Router) {
+  constructor(@Inject(TenantFeedAPIService) private feedService: TenantFeedAPIService, 
+  private router: Router,
+  private issueFeedController: IssueFeedService) {
+    this.issueFeedController.getSubject().subscribe(() => {
+      this.getIssues();
+    });
   }
 
   async getIssues() {
