@@ -13,6 +13,13 @@
 <ion-content>
   <ion-list lines="full">
 
+    <ion-item>
+      <ion-label>House</ion-label>
+      <ion-select [(ngModel)]="houseId"  [compareWith]="compareWith">
+        <ion-select-option *ngFor="let house of houses" [value]="house.id">{{ house.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
     <ion-item class="priority-input">
       <ion-label class="label">Priority</ion-label>
       <ion-label class="label priority-spinner" color="primary" (click)="showPicker()">{{ priorityString }}</ion-label>
