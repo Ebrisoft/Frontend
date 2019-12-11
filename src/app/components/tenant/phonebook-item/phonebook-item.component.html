@@ -1,4 +1,8 @@
-<ion-item (click)="clickContact()">
-  <ion-label>{{ contact.name }}</ion-label>
-  <ion-label>{{ contactSubtitle }}</ion-label>
+<ion-item class="contact" lines="full" (click)="clickContact()">
+  <ion-label class="ion-text-wrap">
+    <ion-text>
+      <h3>{{ contact.name }}</h3>
+    </ion-text>
+    <p>{{ subtitle }}</p>
+  </ion-label>
 </ion-item>

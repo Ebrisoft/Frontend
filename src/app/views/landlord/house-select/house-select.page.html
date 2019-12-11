@@ -10,8 +10,8 @@
 <ion-content>
     <ion-list>
         <ion-radio-group>
-          <ion-item>
-            <ion-label (click)="viewAllHouses()">All Houses</ion-label>
+          <ion-item lines="full">
+            <ion-label (click)="viewAllHouses()">Show All</ion-label>
           </ion-item>
           <app-house-list-item *ngFor="let house of houses" [house]="house"></app-house-list-item>
         </ion-radio-group>
