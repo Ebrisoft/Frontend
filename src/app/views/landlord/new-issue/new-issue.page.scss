@@ -1,0 +1,29 @@
+ion-title {
+  text-align: center;
+  padding: 0 0 3px 0;
+  margin: 0;
+}
+
+ion-item {
+  --padding-left: 0;
+}
+
+.toolbar-text {
+  font-size: 13pt;
+}
+
+.priority-input {
+  padding: 5px 0 0px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.priority-spinner {
+  text-align: right;
+}
+
+.label {
+  font-size: 20px;
+  width: auto;
+}

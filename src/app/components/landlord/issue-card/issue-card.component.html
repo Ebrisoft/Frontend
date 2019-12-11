@@ -1,0 +1,35 @@
+<div class="container">
+  <ion-card>
+    <ion-item lines="none" color="secondary">
+      <ion-card-header color="secondary">
+        <ion-card-title>{{ issue.title }}</ion-card-title> 
+        <ion-card-subtitle>{{ issue.author.userName }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-thumbnail slot="end">
+        <img src="../../../../assets/shapes.svg">
+      </ion-thumbnail>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-text>
+        {{ issue.content }}
+      </ion-text>
+      <div class="issue-meta">
+        <div class="meta-item">
+          <ion-icon name="time"></ion-icon>
+          <p>{{ parsedDate }}</p>
+        </div>
+        <div class="meta-item">
+          <ion-icon name="alert"></ion-icon>
+          <p>{{ priorityDisplay }}</p>
+        </div>
+        <ion-chip color="secondary">
+          <ion-avatar>
+            <img src="https://eu.ui-avatars.com/api/?background={{ secondaryColour }}&color=FFF&bold=true&name={{ issue.author.name.replace(' ', '+') }}">
+          </ion-avatar>
+          <ion-label>{{ issue.author.name }}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

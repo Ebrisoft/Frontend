@@ -1,0 +1,68 @@
+import { Component, OnInit } from "@angular/core";
+import TenantIssueAPIService from "src/app/services/api/tenant/issue-api-service";
+import { Router } from "@angular/router";
+import { Location } from "@angular/common";
+import { ToastController } from "@ionic/angular";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
+
+@Component({
+  selector: "app-new-issue",
+  templateUrl: "./new-issue.page.html",
+  styleUrls: ["./new-issue.page.scss"],
+})
+export class NewIssuePage implements OnInit {
+
+  title: string;
+  content: string;
+
+  isFormValid: boolean;
+
+  constructor(private tenantIssueAPIService: TenantIssueAPIService, 
+    public toastController: ToastController, 
+    private router: Router, 
+    private location: Location,
+    private issueFeedService: IssueFeedService) {
+    this.isFormValid = false;
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: "All fields must have a value",
+      color: "danger",
+      duration: 3000
+    });
+    toast.present();
+  }
+
+  async checkPressed(): Promise<void> {
+    if (this.isFormValid) {
+      await this.tenantIssueAPIService.createIssue(this.title, this.content);
+      this.issueFeedService.triggerUpdate();
+      this.routeBack();
+    } else {
+      this.presentToast();
+    }
+  }
+
+  routeBack() {
+    this.location.back();
+  }
+
+  checkChange() {
+    this.isFormValid = true;
+
+    if (this.title.length === 0) {
+      this.isFormValid = false;
+    }
+
+    if (this.content.length === 0) {
+      this.isFormValid = false;
+    }
+
+    console.log("Valid: " + this.isFormValid);
+  }
+
+  ngOnInit() {
+    this.title = this.content = "";
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Landlord App",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,37 @@
+<app-page-header title="{{pageTitle}}"></app-page-header>
+<ion-content id="top-nav-buttons">
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button class="tab-buton" [class.is-active]="!viewingResolved" (click)="showOpen()">
+        <ion-label>Open</ion-label>
+      </ion-tab-button>
+      <ion-tab-button class="tab-buton" [class.is-active]="viewingResolved" (click)="showClosed()">
+        <ion-label>Resolved</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+  <div *ngIf="issues" class="issues-list">
+    <app-issue-card *ngFor="let issue of (issues | FilterIssuesByHouse:currentHouse | FilterIssuesByStatus:viewingResolved)" [issue]="issue" (click)="viewIssue(issue)"></app-issue-card>
+  </div>
+
+  <div *ngIf="!issues">
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </div>
+
+  <ion-fab *ngIf="!viewingResolved" vertical="bottom" horizontal="end" slot="fixed" (click)="newIssue()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
