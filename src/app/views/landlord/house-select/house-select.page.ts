@@ -31,9 +31,4 @@ export class HouseSelectPage implements OnInit {
     this.currentHouseService.clearHouse();
     this.routeBack();
   }
-
-  addHouse() {
-    //TODO: Add House
-    console.log("Add house pressed");
-  }
 }

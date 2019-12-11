@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import TenantFeedAPIService from "src/app/services/api/tenant/feed-api-service";
 import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
 import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-issue-feed",
@@ -13,11 +14,12 @@ export class IssueFeedPage implements OnInit {
 
   issues: IIssueResponse[];
   viewingResolved: boolean = false;
+  private feedRefreshSubscription: Subscription;
 
   constructor(@Inject(TenantFeedAPIService) private feedService: TenantFeedAPIService, 
   private router: Router,
-  private issueFeedController: IssueFeedService) {
-    this.issueFeedController.getSubject().subscribe(() => {
+  private issueFeedService: IssueFeedService) {
+    this.feedRefreshSubscription = this.issueFeedService.getSubject().subscribe(() => {
       this.getIssues();
     });
   }

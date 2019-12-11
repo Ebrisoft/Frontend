@@ -3,7 +3,7 @@ import TenantIssueAPIService from "src/app/services/api/tenant/issue-api-service
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { ToastController } from "@ionic/angular";
-import { IssueFeedService } from 'src/app/services/observables/issue-feed-service';
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-new-issue",
