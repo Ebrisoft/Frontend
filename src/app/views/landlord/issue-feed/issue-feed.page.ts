@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
 import { CurrentHouseService } from "src/app/services/observables/current-house-service";
 import { Subscription } from "rxjs";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-issue-feed",
@@ -16,17 +17,27 @@ export class IssueFeedPage implements OnInit {
   private pageTitle: string;
   private issues: IIssueResponse[];
   private currentHouse: IHouseResponse;
-  private subscription: Subscription;
+  private currentHouseSubscription: Subscription;
+  private feedRefreshSubscription: Subscription;
   private viewingResolved: boolean = false;
   private loggedInUserEmail: string;
   private isOwner: boolean = false;
 
-  constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, private router: Router, private currentHouseService: CurrentHouseService) {
+  constructor(@Inject(LandlordFeedAPIService) private feedAPIService: LandlordFeedAPIService, 
+    private router: Router, 
+    private currentHouseService: CurrentHouseService,
+    private issueFeedService: IssueFeedService) {
+
     this.currentHouse = this.currentHouseService.getCurrentHouse();
     this.setPageTitle(this.currentHouse); 
-    this.subscription = this.currentHouseService.getSubject().subscribe(currentHouse => {
+    this.currentHouseSubscription = this.currentHouseService.getSubject().subscribe(currentHouse => {
       this.setPageTitle(currentHouse);
     });
+    
+    this.feedRefreshSubscription = this.issueFeedService.getSubject().subscribe(() => {
+      this.getIssues();
+    });
+
   }
 
   async getIssues() {

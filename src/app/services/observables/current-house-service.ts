@@ -19,7 +19,7 @@ export class CurrentHouseService {
   }
 
   getSubject(): Observable<IHouseResponse> {
-      return this.subject.asObservable();
+    return this.subject.asObservable();
   }
 
   getCurrentHouse() {

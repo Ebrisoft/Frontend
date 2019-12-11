@@ -4,6 +4,7 @@ import { Location } from "@angular/common";
 import { AlertController } from "@ionic/angular";
 import IIssueResponse from "src/app/models/response/tenant/issue-response.interface";
 import TenantIssueAPIService from "../../../services/api/tenant/issue-api-service";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-issue-detail",
@@ -22,7 +23,8 @@ export class IssueDetailPage implements OnInit {
     private activeRoute: ActivatedRoute,
     private tenantIssueAPIService: TenantIssueAPIService,
     private location: Location,
-    private alertController: AlertController) {
+    private alertController: AlertController,
+    private issueFeedService: IssueFeedService) {
 
     this.activeRoute.params.subscribe((urlParameters) => {
       this.setIssueById(Number(urlParameters.id)).then(() => {
@@ -60,7 +62,9 @@ export class IssueDetailPage implements OnInit {
           cssClass: "bold",
           handler: async () => {
             detailView.tenantIssueAPIService.closeIssue(detailView.issue.id).then(() => {
-              detailView.setIssueById(detailView.issue.id);
+              detailView.setIssueById(detailView.issue.id).then(() => {
+                detailView.issueFeedService.triggerUpdate();
+              });
             });
           }
         }

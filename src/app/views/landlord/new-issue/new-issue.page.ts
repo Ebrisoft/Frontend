@@ -8,6 +8,7 @@ import { Priority } from "../../../utils/priority.enum";
 import LandlordHouseAPIService from "src/app/services/api/landlord/houses-api.service";
 import IHouseResponse from "src/app/models/response/landlord/house-response.interface";
 import { CurrentHouseService } from "src/app/services/observables/current-house-service";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-new-issue",
@@ -35,7 +36,8 @@ export class NewIssuePage implements OnInit {
     public toastController: ToastController, 
     private router: Router, 
     private location: Location, 
-    private pickerCtrl: PickerController) {
+    private pickerCtrl: PickerController,
+    private issueFeedService: IssueFeedService) {
       this.isFormValid = false;
   }
 
@@ -79,6 +81,7 @@ export class NewIssuePage implements OnInit {
   async checkPressed(): Promise<void> {
     if (this.isFormValid) {
       await this.landlordIssueAPIService.createIssue(this.title, this.content, this.houseId, this.priority);
+      this.issueFeedService.triggerUpdate();
       this.routeBack();
     } else {
       this.presentToast();

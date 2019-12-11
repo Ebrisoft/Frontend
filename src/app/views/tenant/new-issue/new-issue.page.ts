@@ -3,6 +3,7 @@ import TenantIssueAPIService from "src/app/services/api/tenant/issue-api-service
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { ToastController } from "@ionic/angular";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-new-issue",
@@ -16,7 +17,11 @@ export class NewIssuePage implements OnInit {
 
   isFormValid: boolean;
 
-  constructor(private tenantIssueAPIService: TenantIssueAPIService, public toastController: ToastController, private router: Router, private location: Location) {
+  constructor(private tenantIssueAPIService: TenantIssueAPIService, 
+    public toastController: ToastController, 
+    private router: Router, 
+    private location: Location,
+    private issueFeedService: IssueFeedService) {
     this.isFormValid = false;
   }
 
@@ -31,7 +36,8 @@ export class NewIssuePage implements OnInit {
 
   async checkPressed(): Promise<void> {
     if (this.isFormValid) {
-      const response = await this.tenantIssueAPIService.createIssue(this.title, this.content);
+      await this.tenantIssueAPIService.createIssue(this.title, this.content);
+      this.issueFeedService.triggerUpdate();
       this.routeBack();
     } else {
       this.presentToast();

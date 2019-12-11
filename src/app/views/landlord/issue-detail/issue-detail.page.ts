@@ -5,6 +5,7 @@ import { AlertController } from "@ionic/angular";
 import IIssueResponse from "src/app/models/response/landlord/issue-response.interface";
 import LandlordIssueAPIService from "../../../services/api/landlord/issue-api-service";
 import { Priority } from "src/app/utils/priority.enum";
+import { IssueFeedService } from "src/app/services/observables/issue-feed-service";
 
 @Component({
   selector: "app-issue-detail",
@@ -22,7 +23,8 @@ export class IssueDetailPage implements OnInit {
               private activeRoute: ActivatedRoute, 
               private landlordIssueAPIService: LandlordIssueAPIService, 
               private location: Location, 
-              private alertController: AlertController) { 
+              private alertController: AlertController,
+              private issueFeedService: IssueFeedService) { 
 
       this.activeRoute.params.subscribe((urlParameters) => {
         this.setIssueById(Number(urlParameters.id)).then(() => {
@@ -44,7 +46,7 @@ export class IssueDetailPage implements OnInit {
   }
 
   async confirmMarkAsResolved() {
-    const detailView = this;
+    const detailView: IssueDetailPage = this;
 
     const alert = await this.alertController.create({
       header: "Resolve Issue",
@@ -59,7 +61,9 @@ export class IssueDetailPage implements OnInit {
           cssClass: "bold",
           handler: async () => {
             detailView.landlordIssueAPIService.closeIssue(detailView.issue.id).then(() => {
-              detailView.setIssueById(detailView.issue.id);
+              detailView.setIssueById(detailView.issue.id).then(() => {
+                detailView.triggerUpdate();
+              });
             });
           }
         }
@@ -67,6 +71,10 @@ export class IssueDetailPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  private triggerUpdate() {
+    this.issueFeedService.triggerUpdate();
   }
 
   backPressed() {
