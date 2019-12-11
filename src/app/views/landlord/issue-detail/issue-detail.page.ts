@@ -63,6 +63,7 @@ export class IssueDetailPage implements OnInit {
             detailView.landlordIssueAPIService.closeIssue(detailView.issue.id).then(() => {
               detailView.setIssueById(detailView.issue.id).then(() => {
                 detailView.triggerUpdate();
+                this.routeBack();
               });
             });
           }
