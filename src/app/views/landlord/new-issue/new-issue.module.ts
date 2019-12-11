@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { NewIssuePage } from "./new-issue.page";
 import LandlordIssueAPIService from "src/app/services/api/landlord/issue-api-service";
+import LandlordHouseAPIService from "src/app/services/api/landlord/houses-api.service";
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import LandlordIssueAPIService from "src/app/services/api/landlord/issue-api-ser
     IonicModule,
     RouterModule.forChild([{path: "", component: NewIssuePage}])
   ],
-  providers: [ LandlordIssueAPIService ],
+  providers: [ LandlordIssueAPIService, LandlordHouseAPIService ],
   declarations: [NewIssuePage]
 })
 

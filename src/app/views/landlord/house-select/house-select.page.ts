@@ -14,11 +14,11 @@ export class HouseSelectPage implements OnInit {
 
   houses: IHouseResponse[];
 
-  constructor(@Inject(LandlordHouseAPIService) private feedAPIService: LandlordHouseAPIService, private router: Router, 
+  constructor(@Inject(LandlordHouseAPIService) private houseApiService: LandlordHouseAPIService, private router: Router, 
   private location: Location, private currentHouseService: CurrentHouseService) { }
 
   async ngOnInit() {
-    const response = await this.feedAPIService.getHouses();
+    const response = await this.houseApiService.getHouses();
     this.houses = response.payload;
     console.log(this.houses);
   }

@@ -11,9 +11,12 @@ import { CurrentHouseService } from "src/app/services/observables/current-house-
 export class HouseListItemComponent implements OnInit {
 
   @Input() house: IHouseResponse;
+
+  private isSelected: boolean = false;
+
   constructor(private currentHouseService: CurrentHouseService, private location: Location) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setCurrentHouse() {
     this.currentHouseService.setHouse(this.house);

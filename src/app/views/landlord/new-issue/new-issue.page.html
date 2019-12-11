@@ -11,7 +11,18 @@
 </ion-header>
 
 <ion-content>
-  <ion-list lines="full">
+  <div *ngIf="!ready">
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </div>
+  
+  <ion-list *ngIf="ready" lines="full">
+
+    <ion-item>
+      <ion-label class="label">House</ion-label>
+      <ion-select [(ngModel)]="houseId"  [compareWith]="compareWith">
+        <ion-select-option class="label" *ngFor="let house of houses" [value]="house.id">{{ house.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
     <ion-item class="priority-input">
       <ion-label class="label">Priority</ion-label>

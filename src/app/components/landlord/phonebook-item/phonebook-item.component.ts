@@ -12,16 +12,12 @@ export class PhonebookItemComponent implements OnInit {
   @Input()
   private contact: IPhonebookResponse;
 
-  contactSubtitle: string;
+  private subtitle: string;
   
   constructor(private actionSheet: ContactActionSheetComponent) { }
 
   ngOnInit() {
-    if (this.contact.email) {
-      this.contactSubtitle = this.contact.email;
-    } else {
-      this.contactSubtitle = this.contact.phoneNumber;
-    }
+    this.subtitle = this.contact.type.charAt(0).toUpperCase() + this.contact.type.slice(1);
   }
 
   clickContact() {
