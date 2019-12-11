@@ -16,6 +16,8 @@ import { CurrentHouseService } from "src/app/services/observables/current-house-
 })
 export class NewIssuePage implements OnInit {
 
+  private ready: boolean = false;
+
   private houses: IHouseResponse[];
 
   title: string;
@@ -105,5 +107,6 @@ export class NewIssuePage implements OnInit {
     }
     
     this.priorityString = Priority[this.priority];
+    this.ready = true;
   }
 }
