@@ -94,7 +94,7 @@ export class NewIssuePage implements OnInit {
 
   checkChange() {
     this.isFormValid = true;
-    if (!this.title || !this.content || !this.houseId || !this.priority) {
+    if (!this.title || !this.content || !this.houseId) {
       this.isFormValid = false;
     }
   }
