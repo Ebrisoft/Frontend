@@ -2,7 +2,9 @@
   <ion-toolbar color="primary">
     <ion-title>{{ title }}</ion-title>
     <ion-button color="light" class="label" slot="end" fill="clear" (click)="selectHouse()" size="large">
-      <ion-icon name="home"></ion-icon>
+      <div id="house-icon">
+        <icon [path]="mdiHomeGroup"></icon>
+      </div>
     </ion-button>
   </ion-toolbar>
 </ion-header>

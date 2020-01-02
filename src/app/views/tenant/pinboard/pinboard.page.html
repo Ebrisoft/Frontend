@@ -2,7 +2,10 @@
 
 <ion-content>
   <div class="pinboard-container">
-    <ion-icon name="list-box"></ion-icon>
+    <div id="pin-icon">
+      <icon [path]="mdiPin"></icon>
+    </div>
+    
     <p *ngIf="pinboard" class="pinboard-content">{{ pinboard.text }}</p>
   </div>
 </ion-content>

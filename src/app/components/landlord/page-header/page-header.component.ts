@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
+import { mdiHomeGroup } from "@mdi/js";
 
 @Component({
   selector: "app-page-header",
@@ -7,6 +8,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./page-header.component.scss"],
 })
 export class PageHeaderComponent implements OnInit {
+
+  private mdiHomeGroup: string = mdiHomeGroup;
 
   @Input()
   private title: string;

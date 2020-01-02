@@ -28,3 +28,11 @@ ion-icon {
   font-size: 1.2rem;
   white-space: pre-line;
 }
+
+#pin-icon {
+  transform: scale(2);
+  width: 60px;
+  height: 60px;
+  transform: rotate(-45deg);
+  fill: var(--ion-color-secondary);
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject, Input } from "@angular/core";
+import { mdiPin } from "@mdi/js";
 import TenantPinboardAPIService from "src/app/services/api/tenant/pinboard-api-service";
 import IPinboardResponse from "src/app/models/response/tenant/pinboard-response.interface";
 
@@ -9,8 +10,9 @@ import IPinboardResponse from "src/app/models/response/tenant/pinboard-response.
 })
 export class PinboardPage implements OnInit {
 
-
   @Input() pinboard: IPinboardResponse;
+
+  private mdiPin: string = mdiPin;
 
   constructor(@Inject(TenantPinboardAPIService) private pinboardService: TenantPinboardAPIService) { }
 
