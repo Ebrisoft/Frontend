@@ -9,7 +9,7 @@ import IPhonebookResponse from "src/app/models/response/tenant/phonebook-respons
 })
 export class PhonebookPage implements OnInit {
 
-  contacts: IPhonebookResponse[];
+  contacts: IPhonebookResponse[] = [];
 
   constructor(@Inject(TenantPhonebookAPIService) private phonebookService: TenantPhonebookAPIService) {
 
