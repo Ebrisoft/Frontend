@@ -1,5 +1,6 @@
 <app-page-header title="Phonebook"></app-page-header>
 
 <ion-content>
+  <ion-progress-bar *ngIf="contacts.length === 0" type="indeterminate"></ion-progress-bar>
   <app-phonebook-item *ngFor="let contact of contacts" [contact]="contact"></app-phonebook-item>
 </ion-content>

@@ -1,6 +1,7 @@
 <app-page-header title="Pinboard"></app-page-header>
 
 <ion-content>
+  <ion-progress-bar *ngIf="!pinboard" type="indeterminate"></ion-progress-bar>
   <div class="pinboard-container">
     <ion-icon name="list-box"></ion-icon>
     <p *ngIf="pinboard" class="pinboard-content">{{ pinboard.text }}</p>

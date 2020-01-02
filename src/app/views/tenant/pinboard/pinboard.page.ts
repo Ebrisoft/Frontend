@@ -9,7 +9,6 @@ import IPinboardResponse from "src/app/models/response/tenant/pinboard-response.
 })
 export class PinboardPage implements OnInit {
 
-
   @Input() pinboard: IPinboardResponse;
 
   constructor(@Inject(TenantPinboardAPIService) private pinboardService: TenantPinboardAPIService) { }
