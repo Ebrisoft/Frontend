@@ -18,7 +18,7 @@ export class OrderByDatePriority implements PipeTransform {
       const bDate = new Date(b.createdAt);
 
       if (a.priority === b.priority) {
-        return (aDate < bDate) ? 1 : aDate > bDate ? -1 : 0;
+        return (aDate < bDate) ? 1 : (aDate > bDate) ? -1 : 0;
       } else {
         return (a.priority < b.priority) ? 1 : -1;
       }
