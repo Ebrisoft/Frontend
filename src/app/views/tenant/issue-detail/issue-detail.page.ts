@@ -64,6 +64,7 @@ export class IssueDetailPage implements OnInit {
             detailView.tenantIssueAPIService.closeIssue(detailView.issue.id).then(() => {
               detailView.setIssueById(detailView.issue.id).then(() => {
                 detailView.issueFeedService.triggerUpdate();
+                this.routeBack();
               });
             });
           }

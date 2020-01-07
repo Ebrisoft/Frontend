@@ -1,8 +1,9 @@
-<ion-item class="contact" lines="full" (click)="clickContact()">
+<ion-item class="contact" lines="full" (click)="clickContact()" class="ion-activatable">
   <ion-label class="ion-text-wrap">
     <ion-text>
       <h3>{{ contact.name }}</h3>
     </ion-text>
     <p>{{ subtitle }}</p>
   </ion-label>
+  <ion-ripple-effect></ion-ripple-effect>
 </ion-item>
